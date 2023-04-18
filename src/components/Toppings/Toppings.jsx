@@ -1,10 +1,13 @@
 import React from 'react';
+import ToppingsSummary from './ToppingsSummary';
+import AvailableToppings from './AvailableToppings';
 
 const Toppings = () => {
   return (
-    <div>
-      
-    </div>
+    <>
+      <ToppingsSummary />
+      <AvailableToppings />
+    </>
   );
 };
 
