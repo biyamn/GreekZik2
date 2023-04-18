@@ -1,9 +1,10 @@
 import React from 'react';
 import Input from '../../UI/Input';
+import classes from './ToppingItemForm.module.css';
 
 const ToppingItemForm = () => {
   return (
-    <form>
+    <form className={classes.form}>
       <Input 
         label="수량" 
         input={{

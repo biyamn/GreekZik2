@@ -1,6 +1,7 @@
 import './App.css'
 import Header from './components/Layout/Header';
 import Toppings from './components/Toppings/Toppings';
+import './App.css';
 
 function App() {
   
