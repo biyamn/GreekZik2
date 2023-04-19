@@ -1,5 +1,5 @@
 .toppings {
-  max-width: 60rem;
+  max-width: 50rem;
   width: 90%;
   margin: 2rem auto;
   animation: toppings-appear 1s ease-out forwards;
