@@ -5,6 +5,7 @@
   padding-bottom: 0.3rem;
   border-bottom: 1px solid #ccc;
   margin: 0 2rem;
+  font-size: 1.2rem;
 }
 
 .price {
@@ -12,7 +13,6 @@
   margin: auto 0;
   font-weight: bold;
   color: rgb(110, 110, 110);
-  font-size: 1.25rem;
 }
 
 .titleAndPrice {
