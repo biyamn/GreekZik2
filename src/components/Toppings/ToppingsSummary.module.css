@@ -8,10 +8,10 @@
   position: relative;
   color: white;
   border-radius: 14px;
-  padding: 1rem;
+  padding: 2rem 0;
 }
 
 .summary p {
-  font-size: 1.3em;
+  font-size: 1.4em;
   margin: 1%;
 }
