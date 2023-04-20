@@ -2,12 +2,13 @@ import React from 'react';
 import ToppingItemForm from './ToppingItemForm';
 import classes from './ToppingItem.module.css';
 
-const ToppingItem = () => {
+const ToppingItem = (props) => {
   return (
     <li className={classes.topping}>
-      <div className={classes.titleAndPrice}>
-        <h3>무화과</h3>
-        <div className={classes.price}><i>1,000원</i></div>
+      <div className={classes.titlePriceDescription}>
+        <h3>{props.name}</h3>
+        <div className={classes.price}><i>{props.price}</i></div>
+        <div className={classes.description}>{props.description}</div>
       </div>
       <ToppingItemForm />
     </li>

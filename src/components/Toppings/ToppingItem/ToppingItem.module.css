@@ -8,17 +8,19 @@
   font-size: 1.4rem;
 }
 
+.titlePriceDescription {
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+}
+
 .price {
-  text-align: center;
-  margin: auto 0;
   font-weight: bold;
   color: rgb(110, 110, 110);
+  margin: 0 2rem;
+  font-size: 1.4rem;
 }
 
-.titleAndPrice {
-  display: flex; 
-}
-
-.titleAndPrice h3 {
-  margin-right: 2rem;
+.description {
+  font-size: 1.3rem;
 }
