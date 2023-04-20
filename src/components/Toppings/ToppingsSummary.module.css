@@ -3,7 +3,6 @@
   max-width: 45rem;
   width: 50%;
   margin: auto;
-  margin-top: 15%;
   background-color: #b2b2b2;
   position: relative;
   color: white;
@@ -12,6 +11,6 @@
 }
 
 .summary p {
-  font-size: 1.4em;
+  font-size: 1.8em;
   margin: 1%;
 }
