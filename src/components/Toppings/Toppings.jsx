@@ -13,25 +13,25 @@ const DUMMY_CATEGORIES = [
     DUMMY_TOPPINGS: [
       {
         id: 't1',
-        name: '무가당 그릭요거트(100g)',
+        name: '무가당(100g)',
         description: '최상급 우유와 유산균 외의 첨가물이 전혀 없는 그릭요거트',
         price: 3500,
       },
       {
         id: 't2',
-        name: '망고 그릭요거트(100g)',
+        name: '망고맛(100g)',
         description: '망고의 달콤함과 풍미를 담은 망고 그릭요거트',
         price: 4500,
       },
       {
         id: 't3',
-        name: '딸기 그릭요거트(100g)',
+        name: '딸기맛(100g)',
         description: '설향딸기의 달콤함을 담은 딸기 그릭요거트',
         price: 4500,
       },
       {
         id: '4',
-        name: '황치즈 그릭요거트(100g)',
+        name: '황치즈맛(100g)',
         description: '세가지 치즈의 깊은 맛을 담은 황치즈 그릭요거트',
         price: 5000,
       },
@@ -144,15 +144,17 @@ const Toppings = () => {
     <div className={classes.toppings}>
       <ToppingsSummary />
       <Card>
-        <ul>
-          <ToppingsCategory
-            DUMMY_CATEGORIES={DUMMY_CATEGORIES}
-            onSelect={onSelect}
+        <div className={classes.container}>
+          <ul className={classes.categoryContainer}>
+            <ToppingsCategory
+              DUMMY_CATEGORIES={DUMMY_CATEGORIES}
+              onSelect={onSelect}
+            />
+          </ul>
+          <AvailableToppings 
+            toppingsInSelectedCategory={toppingsInSelectedCategory} 
           />
-        </ul>
-        <AvailableToppings 
-          toppingsInSelectedCategory={toppingsInSelectedCategory} 
-        />
+        </div>
       </Card>
     </div>
   );

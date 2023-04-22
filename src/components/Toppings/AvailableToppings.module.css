@@ -2,6 +2,7 @@
   max-width: 70rem;
   width: 90%;
   margin: 2rem auto;
+  margin-top: 0;
   animation: toppings-appear 1s ease-out forwards;
 }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './ToppingsCategory';
+import classes from './ToppingsCategory.module.css';
 
 const ToppingsCategory = (props) => {
   const selectHandler = (id) => {
