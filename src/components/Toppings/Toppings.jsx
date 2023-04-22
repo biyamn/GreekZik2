@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import ToppingsSummary from './ToppingsSummary';
 import AvailableToppings from './AvailableToppings';
 import ToppingsCategory from './ToppingsCategory';
+import Card from './../UI/Card';
 import classes from './Toppings.module.css';
+
 
 const DUMMY_CATEGORIES = [
   {
@@ -141,16 +143,17 @@ const Toppings = () => {
   return (
     <div className={classes.toppings}>
       <ToppingsSummary />
-      <ul>
-      <ToppingsCategory
-        DUMMY_CATEGORIES={DUMMY_CATEGORIES}
-        onSelect={onSelect}
-      />
-      </ul>
-      <AvailableToppings 
-        toppingsInSelectedCategory={toppingsInSelectedCategory} 
-      />
-      
+      <Card>
+        <ul>
+          <ToppingsCategory
+            DUMMY_CATEGORIES={DUMMY_CATEGORIES}
+            onSelect={onSelect}
+          />
+        </ul>
+        <AvailableToppings 
+          toppingsInSelectedCategory={toppingsInSelectedCategory} 
+        />
+      </Card>
     </div>
   );
 };

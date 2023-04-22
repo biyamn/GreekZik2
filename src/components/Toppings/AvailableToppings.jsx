@@ -1,5 +1,4 @@
 import React from 'react';
-import Card from '../UI/Card';
 import ToppingItem from './ToppingItem/ToppingItem';
 import classes from './AvailableToppings.module.css';
 
@@ -16,9 +15,7 @@ const AvailableToppings = (props) => {
   console.log(props.toppingsInSelectedCategory)
   return (
     <section className={classes.toppings}>
-      <Card>
-        {toppingsList}
-      </Card>
+      {toppingsList}
     </section>
   );
 };
