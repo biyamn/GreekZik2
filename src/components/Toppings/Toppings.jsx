@@ -41,25 +41,25 @@ const DUMMY_CATEGORIES = [
     DUMMY_TOPPINGS: [
       {
         id: 't1',
-        name: '무화과',
+        name: '무화과BB',
         description: '인기만점 부드럽고 향기로운 무화과',
         price: 2000,
       },
       {
         id: 't2',
-        name: '생딸기',
+        name: '생딸기BB',
         description: '달콤하고 싱싱한 설향딸기',
         price: 2000,
       },
       {
         id: 't3',
-        name: '블루베리',
+        name: '블루베BB리',
         description: '단단하고 싱그러운 블루베리',
         price: 1000,
       },
       {
         id: '4',
-        name: '샤인머스켓',
+        name: '샤인머BB스켓',
         description: '고당도 명품포도, 샤인머스켓',
         price: 1000,
       },
@@ -71,25 +71,25 @@ const DUMMY_CATEGORIES = [
     DUMMY_TOPPINGS: [
       {
         id: 't1',
-        name: '무화과',
+        name: '무CCC화과',
         description: '인기만점 부드럽고 향기로운 무화과',
         price: 2000,
       },
       {
         id: 't2',
-        name: '생딸기',
+        name: '생CCCC딸기',
         description: '달콤하고 싱싱한 설향딸기',
         price: 2000,
       },
       {
         id: 't3',
-        name: '블루베리',
+        name: '블루CCC베리',
         description: '단단하고 싱그러운 블루베리',
         price: 1000,
       },
       {
         id: '4',
-        name: '샤인머스켓',
+        name: '샤인CCC머스켓',
         description: '고당도 명품포도, 샤인머스켓',
         price: 1000,
       },
