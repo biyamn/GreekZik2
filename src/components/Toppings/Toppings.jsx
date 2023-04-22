@@ -134,15 +134,22 @@ const Toppings = () => {
     setSelectedCategory(id);
   }
 
-  const toppingsInSelectedCategory = DUMMY_CATEGORIES.filter(category => category.id === selectedCategory);
-  // console.log(toppingsInSelectedCategory)
+  const toppingsInSelectedCategory = DUMMY_CATEGORIES.filter(category => {
+    return category.id === selectedCategory;
+  });
+  
   return (
     <div className={classes.toppings}>
       <ToppingsSummary />
       <ul>
-        <ToppingsCategory DUMMY_CATEGORIES={DUMMY_CATEGORIES} onSelect={onSelect} />
+      <ToppingsCategory
+        DUMMY_CATEGORIES={DUMMY_CATEGORIES}
+        onSelect={onSelect}
+      />
       </ul>
-      <AvailableToppings toppingsInSelectedCategory={toppingsInSelectedCategory} />
+      <AvailableToppings 
+        toppingsInSelectedCategory={toppingsInSelectedCategory} 
+      />
       
     </div>
   );

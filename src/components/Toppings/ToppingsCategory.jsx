@@ -8,7 +8,12 @@ const ToppingsCategory = (props) => {
 
   return (
     props.DUMMY_CATEGORIES.map(category => 
-        <li key={category.id} onClick={() => selectHandler(category.id)}>{category.name}</li>
+      <li
+        key={category.id}
+        onClick={() => selectHandler(category.id)}
+      >
+        {category.name}
+      </li>
     )
   );
 };
