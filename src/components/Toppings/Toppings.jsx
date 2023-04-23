@@ -73,13 +73,13 @@ const DUMMY_CATEGORIES = [
     DUMMY_TOPPINGS: [
       {
         id: 't1',
-        name: '딸기청',
+        name: '딸기 수제청',
         description: '새콤달콤한 설향딸기로 만든 수제 딸기청',
         price: 2000,
       },
       {
         id: 't2',
-        name: '블루베리청',
+        name: '블루베리 수제청',
         description: '싱싱한 블루베리로 만든 수제 블루베리청',
         price: 2000,
       },
