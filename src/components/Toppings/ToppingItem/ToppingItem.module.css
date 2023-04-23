@@ -8,6 +8,13 @@
   font-size: 1.4rem;
 }
 
+.topping:first-child {
+  border-top: 1px solid #ccc;
+}
+
+h3 {
+  font-weight: 500;
+}
 .titlePriceDescription {
   display: flex; 
   align-items: center;
@@ -15,7 +22,6 @@
 }
 
 .price {
-  font-weight: bold;
   color: rgb(110, 110, 110);
   margin: 0 2rem;
   font-size: 1.4rem;

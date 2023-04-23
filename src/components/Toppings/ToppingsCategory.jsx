@@ -11,6 +11,7 @@ const ToppingsCategory = (props) => {
       <li
         key={category.id}
         onClick={() => selectHandler(category.id)}
+        className={classes.category}
       >
         {category.name}
       </li>

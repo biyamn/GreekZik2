@@ -1,3 +1,13 @@
-li {
+.category {
   list-style: none;
+  font-size: 1.5rem;
+}
+
+.category:not(:last-child) {
+  padding-right: 6rem;
+  border-right: 1px solid #ccc;
+}
+
+.category:hover {
+  color: rgb(255, 177, 234);
 }

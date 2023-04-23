@@ -145,12 +145,14 @@ const Toppings = () => {
       <ToppingsSummary />
       <Card>
         <div className={classes.container}>
-          <ul className={classes.categoryContainer}>
-            <ToppingsCategory
-              DUMMY_CATEGORIES={DUMMY_CATEGORIES}
-              onSelect={onSelect}
-            />
-          </ul>
+          <div className={classes.ulContainer}>
+            <ul className={classes.liContainer}>
+              <ToppingsCategory
+                DUMMY_CATEGORIES={DUMMY_CATEGORIES}
+                onSelect={onSelect}
+              />
+            </ul>
+          </div>
           <AvailableToppings 
             toppingsInSelectedCategory={toppingsInSelectedCategory} 
           />

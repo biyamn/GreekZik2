@@ -1,23 +1,30 @@
 .toppings {
-  margin-top: 10%;
+  margin-top: 10rem;
 }
 
 .container {
   display: flex;
   flex-direction: column;
+}
+
+.ulContainer {
+  display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.categoryContainer {
+.liContainer {
+  padding-left: 0;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding-bottom: 0.3rem;
-  border-bottom: 1px solid #ccc;
+  justify-content: space-around;
   font-size: 1.4rem;
   max-width: 66rem;
   width: 90%;
   margin-bottom: 0;
-  padding-bottom: 2rem;
+  padding-bottom: 1.5rem;
+}
+
+.liContainer:first-child {
+  border-bottom: 1px solid #ccc;
 }
