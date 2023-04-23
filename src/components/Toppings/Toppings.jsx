@@ -14,7 +14,7 @@ const DUMMY_CATEGORIES = [
       {
         id: 't1',
         name: '무가당(100g)',
-        description: '최상급 우유와 유산균 외의 첨가물이 전혀 없는 그릭요거트',
+        description: '우유와 유산균 외의 첨가물이 전혀 없는 그릭요거트',
         price: 3500,
       },
       {
