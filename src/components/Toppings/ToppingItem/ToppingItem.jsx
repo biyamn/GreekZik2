@@ -7,7 +7,7 @@ const ToppingItem = (props) => {
     <li className={classes.topping}>
       <div className={classes.namePriceDescription}>
         <h3 className={classes.name}>{props.name}</h3>
-        <div className={classes.price}><i>{props.price}</i></div>
+        <div className={classes.price}>{`${props.price}원`}</div>
         <div className={classes.description}>{props.description}</div>
       </div>
       <ToppingItemForm />

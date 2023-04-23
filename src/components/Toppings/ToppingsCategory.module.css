@@ -1,7 +1,6 @@
 .category {
   list-style: none;
   font-size: 1.5rem;
-  font-weight: bold;
 }
 
 .category:not(:last-child) {
@@ -10,5 +9,5 @@
 }
 
 .category:hover {
-  color: rgb(0, 103, 33);
+  color: rgb(159, 159, 159);
 }

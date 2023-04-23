@@ -5,7 +5,7 @@
   padding-bottom: 0.3rem;
   border-bottom: 1px solid #ccc;
   margin: 0 2rem;
-  font-size: 1.4rem;
+  height: 5.5rem;
 }
 
 .topping:first-child {
@@ -20,19 +20,21 @@
 
 .name {
   font-weight: 500;
-  width: 13rem;
-  margin-right: 1rem;
+  width: 9rem;
+  margin-right: 0.5rem;
+  font-size: 1.3rem;
 }
 
 .price {
   color: rgb(110, 110, 110);
-  font-size: 1.4rem;
-  width: 4rem;
-  margin-right: 1rem;
+  font-size: 1.3rem;
+  width: 5rem;
+  margin-right: 1.5rem;
+  text-align: right;
 }
 
 .description {
   font-size: 1.3rem;
-  width: 29rem;
-  margin-right: 1rem;
+  width: 25rem;
+  margin-right: 0.5rem;
 }
