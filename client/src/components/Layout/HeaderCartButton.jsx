@@ -4,11 +4,11 @@ import classes from './HeaderCartButton.module.css';
 
 const HeaderCartButton = props => {
   const onOpen = () => {
-    props.onOpen(true);
+    props.onOpen(!props.isOpen);
   }
 
   return (
-    <button className={classes.button} onClick={() =>  onOpen}>
+    <button className={classes.button} onClick={onOpen}>
       <span className={classes.icon}>
         <CartIcon />
       </span>

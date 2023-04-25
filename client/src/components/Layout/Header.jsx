@@ -2,16 +2,16 @@ import React from 'react';
 import HeaderCartButton from './HeaderCartButton';
 import classes from './Header.module.css';
 
-const Header = () => {
-  const onOpen = () => {
-    props.onOpen(true);
+const Header = props => {
+  const onOpen = (nowIsOpen) => {
+    props.onOpen(nowIsOpen);
   }
   
   return (
     <>
       <header className={classes.header} >
         <h1>GreekZik</h1>
-        <HeaderCartButton onClick={() => onClick} onOpen={onOpen} />
+        <HeaderCartButton onOpen={onOpen} isOpen={props.isOpen} />
       </header>
     </>
   );

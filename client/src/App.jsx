@@ -6,14 +6,14 @@ import './App.css';
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
-  const onOpen = (boolean) => {
-    setIsOpen(boolean);
+  const onOpen = (nowIsOpen) => {
+    setIsOpen(nowIsOpen);
   }
 
   return (
     <>
       {isOpen && <Cart />}
-      <Header onOpen={onOpen} />
+      <Header onOpen={onOpen} isOpen={isOpen} />
       <main>
         <Toppings />
       </main>
