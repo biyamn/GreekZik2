@@ -22,11 +22,8 @@ const Toppings = () => {
     })
   }, [])
 
-  
-
   const onSelect = (id) => {
     setSelectedCategory(id);
-
   }
 
   if (isLoading) {

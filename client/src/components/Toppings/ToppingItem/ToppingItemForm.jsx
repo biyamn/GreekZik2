@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import Input from '../../UI/Input';
 import classes from './ToppingItemForm.module.css';
 
 const ToppingItemForm = () => {
+  const ref = useRef(null);
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    console.log(ref.current.value);
+  }
+
   return (
-    <form className={classes.form}>
+    <form className={classes.form} onSubmit={submitHandler}>
       <Input 
+        ref={ref}
         label="수량" 
         input={{
           id: 1,
@@ -16,7 +24,7 @@ const ToppingItemForm = () => {
           defaultValue: '1',
         }} 
       />
-      <button>+ 담기</button>
+      <button type="submit">+ 담기</button>
     </form>
   );
 };
