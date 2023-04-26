@@ -7,7 +7,8 @@ const ToppingItemForm = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(ref.current.value);
+    console.log("ref.current는?", ref.current);
+    console.log("ref.current.value는?", ref.current.value);
   }
 
   return (
