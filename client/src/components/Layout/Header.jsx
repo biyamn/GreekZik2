@@ -3,15 +3,12 @@ import HeaderCartButton from './HeaderCartButton';
 import classes from './Header.module.css';
 
 const Header = props => {
-  const onOpen = (nowIsOpen) => {
-    props.onOpen(nowIsOpen);
-  }
   
   return (
     <>
       <header className={classes.header} >
         <h1>GreekZik</h1>
-        <HeaderCartButton onOpen={onOpen} isOpen={props.isOpen} />
+        <HeaderCartButton onClick={props.showCartHandler} />
       </header>
     </>
   );

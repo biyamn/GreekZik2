@@ -5,15 +5,16 @@ import Toppings from './components/Toppings/Toppings';
 import './App.css';
 
 function App() {
-  const [isOpen, setIsOpen] = useState(false);
-  const onOpen = (nowIsOpen) => {
-    setIsOpen(nowIsOpen);
+  const [cartIsShown, setCartIsShown] = useState(false);
+
+  const showCartHandler = () => {
+    setCartIsShown(true);
   }
 
   return (
     <>
-      {isOpen && <Cart />}
-      <Header onOpen={onOpen} isOpen={isOpen} />
+      {cartIsShown && <Cart />}
+      <Header showCartHandler={showCartHandler} />
       <main>
         <Toppings />
       </main>
