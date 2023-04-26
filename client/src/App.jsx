@@ -11,9 +11,13 @@ function App() {
     setCartIsShown(true);
   }
 
+  const hideCartHandler = () => {
+    setCartIsShown(false);
+  }
+
   return (
     <>
-      {cartIsShown && <Cart />}
+      {cartIsShown && <Cart hideCartHandler={hideCartHandler} />}
       <Header showCartHandler={showCartHandler} />
       <main>
         <Toppings />
