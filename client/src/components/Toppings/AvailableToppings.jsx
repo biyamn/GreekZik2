@@ -2,7 +2,10 @@ import React, { useState } from 'react';
 import ToppingItem from './ToppingItem/ToppingItem';
 import classes from './AvailableToppings.module.css';
 
-const AvailableToppings = (props) => {
+const AvailableToppings = props => {
+  const onSaveAmount = (enteredAmount) => {
+    props.onSaveAmount(enteredAmount);
+  }
 
   const filtered = props.backendData.filter(category => {
     return category.id === props.selectedCategory;
@@ -15,6 +18,7 @@ const AvailableToppings = (props) => {
       name={topping.name}
       description={topping.description}
       price={topping.price}
+      onSaveAmount={onSaveAmount}
     />
   )
 

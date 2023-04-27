@@ -5,7 +5,7 @@ import ToppingsCategory from './ToppingsCategory';
 import Card from './../UI/Card';
 import classes from './Toppings.module.css';
 
-const Toppings = () => {
+const Toppings = props => {
   const [backendData, setBackendData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState('c1');
@@ -68,6 +68,10 @@ const Toppings = () => {
     setSelectedCategory(id);
   }
 
+  const onSaveAmount = (enteredAmount) => {
+    props.onSaveAmount(enteredAmount);
+  }
+
   if (isLoading) {
     return <div>Loading...</div>
   } else {
@@ -87,6 +91,7 @@ const Toppings = () => {
               <AvailableToppings
                 backendData={backendData}
                 selectedCategory={selectedCategory} 
+                onSaveAmount={onSaveAmount}
               />
             </div>
           </Card>

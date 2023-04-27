@@ -10,7 +10,7 @@ const HeaderCartButton = props => {
         <CartIcon />
       </span>
       <span>장바구니</span>
-      <span className={classes.badge}>0</span>
+      <span className={classes.badge}>{props.totalAmount}</span>
     </button>
   );
 };

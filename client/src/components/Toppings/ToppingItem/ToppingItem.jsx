@@ -2,7 +2,10 @@ import React from 'react';
 import ToppingItemForm from './ToppingItemForm';
 import classes from './ToppingItem.module.css';
 
-const ToppingItem = (props) => {
+const ToppingItem = props => {
+  const onSaveAmount = (enteredAmount) => {
+    props.onSaveAmount(enteredAmount);
+  }
   return (
     <li className={classes.topping}>
       <div className={classes.namePriceDescription}>
@@ -10,7 +13,7 @@ const ToppingItem = (props) => {
         <div className={classes.price}>{`${props.price}원`}</div>
         <div className={classes.description}>{props.description}</div>
       </div>
-      <ToppingItemForm />
+      <ToppingItemForm onSaveAmount={onSaveAmount} />
     </li>
   );
 };

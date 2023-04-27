@@ -6,6 +6,11 @@ import './App.css';
 
 function App() {
   const [cartIsShown, setCartIsShown] = useState(false);
+  const [totalAmount, setTotalAmount] = useState(0);
+
+  const onSaveAmount = (enteredAmount) => {
+    setTotalAmount(totalAmount + enteredAmount)
+  }
 
   const showCartHandler = () => {
     setCartIsShown(true);
@@ -18,9 +23,9 @@ function App() {
   return (
     <>
       {cartIsShown && <Cart hideCartHandler={hideCartHandler} />}
-      <Header showCartHandler={showCartHandler} />
+      <Header showCartHandler={showCartHandler} totalAmount={totalAmount} />
       <main>
-        <Toppings />
+        <Toppings onSaveAmount={onSaveAmount}/>
       </main>
     </>
   );

@@ -2,19 +2,20 @@ import React, { useRef } from 'react';
 import Input from '../../UI/Input';
 import classes from './ToppingItemForm.module.css';
 
-const ToppingItemForm = () => {
-  const ref = useRef(null);
+const ToppingItemForm = props => {
+  const amountInputRef = useRef();
 
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log("ref.current는?", ref.current);
-    console.log("ref.current.value는?", ref.current.value);
+    const enteredAmount = Number(amountInputRef.current.value);
+    
+    props.onSaveAmount(enteredAmount);
   }
 
   return (
     <form className={classes.form} onSubmit={submitHandler}>
       <Input 
-        ref={ref}
+        ref={amountInputRef}
         label="수량" 
         input={{
           id: 1,
