@@ -1,20 +1,26 @@
 import React from 'react';
 import Modal from '../UI/Modal';
+import CartItem from './CartItem';
 import classes from './Cart.module.css';
 
 const Cart = props => {
-  const items = props.totalItemData.map(item =>
-    (
-      <li>
-        <span>{item.name}</span>
-        <span>{item.description}</span>
-        <span>{item.price}</span>
-      </li>
-    ))
+  const cartItems = (
+    <ul className={classes['cart-items']}>
+      {props.totalItemData.map(item => 
+        <CartItem 
+          key={item.id} 
+          name={item.name} 
+          amount={item.amount} 
+          price={item.price} 
+        />
+      )}
+    </ul>
+    );
+
   return (
     <Modal hideCartHandler={props.hideCartHandler}>
       <div>
-        {items}
+        {cartItems}
       </div>
       <div className={classes.total}>
         <span>Total Amount</span>

@@ -7,12 +7,12 @@ const ToppingItem = props => {
     props.onSaveAmount(enteredAmount);
   }
 
-  const onSaveItem = id => {
+  const onSaveItem = (id, amount) => {
     const selectedItemData = {
       id: id,
       name: props.name,
       price: props.price,
-      description: props.description
+      amount: amount
     }
     props.onSaveItem(selectedItemData);
   }
