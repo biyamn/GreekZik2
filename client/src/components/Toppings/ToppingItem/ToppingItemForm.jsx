@@ -8,8 +8,8 @@ const ToppingItemForm = props => {
   const submitHandler = (e) => {
     e.preventDefault();
     const enteredAmount = Number(amountInputRef.current.value);
-    
     props.onSaveAmount(enteredAmount);
+    props.onSaveItem(amountInputRef.current.id);
   }
 
   return (
@@ -18,7 +18,7 @@ const ToppingItemForm = props => {
         ref={amountInputRef}
         label="수량" 
         input={{
-          id: 1,
+          id: props.id,
           type: 'number',
           min: '1',
           max: '10',

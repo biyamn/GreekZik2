@@ -7,9 +7,16 @@ import './App.css';
 function App() {
   const [cartIsShown, setCartIsShown] = useState(false);
   const [totalAmount, setTotalAmount] = useState(0);
-
-  const onSaveAmount = (enteredAmount) => {
+  const [totalItemData, setTotalItemData] = useState([]);
+  
+  const onSaveAmount = enteredAmount => {
     setTotalAmount(totalAmount + enteredAmount)
+  }
+
+  const onSaveItem = selectedItemData => {
+    const newTotalAmount = totalItemData.concat(selectedItemData);
+    setTotalItemData(newTotalAmount);
+    console.log(totalItemData);
   }
 
   const showCartHandler = () => {
@@ -22,10 +29,10 @@ function App() {
 
   return (
     <>
-      {cartIsShown && <Cart hideCartHandler={hideCartHandler} />}
+      {cartIsShown && <Cart hideCartHandler={hideCartHandler} totalItemData={totalItemData} />}
       <Header showCartHandler={showCartHandler} totalAmount={totalAmount} />
       <main>
-        <Toppings onSaveAmount={onSaveAmount}/>
+        <Toppings onSaveAmount={onSaveAmount} onSaveItem={onSaveItem} />
       </main>
     </>
   );
