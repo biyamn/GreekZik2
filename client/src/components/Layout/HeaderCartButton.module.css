@@ -9,9 +9,7 @@
   justify-content: space-around;
   align-items: center;
   border-radius: 35px;
-  font-weight: bold;
   font-size: 1.5rem;
-
 }
 
 .button:hover,
@@ -26,11 +24,11 @@
 }
 
 .badge {
-  background-color: #D9D9D9;
+  background-color: #eeeeee;
   padding: 0.2rem 1rem;
   border-radius: 30px;
-  margin-left: 1rem;
-  font-weight: bold;
+  margin-left: 0.5rem;
+  color: rgb(48, 48, 48);
 }
 
 .button:hover .badge,
