@@ -11,6 +11,7 @@ const AvailableToppings = props => {
     return category.id === props.selectedCategory;
   })
 
+  console.log('filtered: ', filtered)
   const toppingsList = filtered[0].DUMMY_TOPPINGS.map(topping => 
     <ToppingItem
       id={topping.id}
@@ -22,6 +23,7 @@ const AvailableToppings = props => {
     />
   )
 
+  console.log(filtered[0].DUMMY_TOPPINGS.map(topping => topping));
   return (
     <section className={classes.toppings}>
       {toppingsList}

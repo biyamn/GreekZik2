@@ -3,13 +3,15 @@ import ToppingItemForm from './ToppingItemForm';
 import classes from './ToppingItem.module.css';
 
 const ToppingItem = props => {
-  const onSaveItem = (amount) => {
+  const onSaveItem = () => {
+    console.log(props.name)
     const selectedItemData = {
       id: props.id,
       name: props.name,
       price: props.price,
-      amount: amount
+      // amount: amount
     }
+    console.log('선택된 객체(id, name, amount): ', selectedItemData)
     props.onSaveItem(selectedItemData);
   }
 
