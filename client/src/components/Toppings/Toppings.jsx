@@ -66,12 +66,9 @@ const Toppings = props => {
     setSelectedCategory(id);
   }
 
-  const onSaveAmount = (enteredAmount) => {
-    props.onSaveAmount(enteredAmount);
-  }
-
   const onSaveItem = selectedItemData => {
     props.onSaveItem(selectedItemData);
+    props.onSaveAmount(selectedItemData.amount)
   }
 
   if (isLoading) {
@@ -93,7 +90,6 @@ const Toppings = props => {
               <AvailableToppings
                 backendData={backendData}
                 selectedCategory={selectedCategory} 
-                onSaveAmount={onSaveAmount}
                 onSaveItem={onSaveItem}
               />
             </div>

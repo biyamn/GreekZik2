@@ -3,10 +3,6 @@ import ToppingItem from './ToppingItem/ToppingItem';
 import classes from './AvailableToppings.module.css';
 
 const AvailableToppings = props => {
-  const onSaveAmount = enteredAmount => {
-    props.onSaveAmount(enteredAmount);
-  }
-
   const onSaveItem = selectedItemData => {
     props.onSaveItem(selectedItemData);
   }
@@ -22,7 +18,6 @@ const AvailableToppings = props => {
       name={topping.name}
       description={topping.description}
       price={topping.price}
-      onSaveAmount={onSaveAmount}
       onSaveItem={onSaveItem}
     />
   )

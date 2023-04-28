@@ -3,13 +3,9 @@ import ToppingItemForm from './ToppingItemForm';
 import classes from './ToppingItem.module.css';
 
 const ToppingItem = props => {
-  const onSaveAmount = (enteredAmount) => {
-    props.onSaveAmount(enteredAmount);
-  }
-
-  const onSaveItem = (id, amount) => {
+  const onSaveItem = (amount) => {
     const selectedItemData = {
-      id: id,
+      id: props.id,
       name: props.name,
       price: props.price,
       amount: amount
@@ -24,7 +20,7 @@ const ToppingItem = props => {
         <div className={classes.price}>{`${props.price}원`}</div>
         <div className={classes.description}>{props.description}</div>
       </div>
-      <ToppingItemForm onSaveAmount={onSaveAmount} onSaveItem={onSaveItem} id={props.id} />
+      <ToppingItemForm onSaveItem={onSaveItem} id={props.id} />
     </li>
   );
 };
