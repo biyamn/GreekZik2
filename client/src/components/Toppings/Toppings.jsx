@@ -64,9 +64,9 @@ const Toppings = props => {
 
   const onSelect = (id) => {
     setSelectedCategory(id);
-    console.log(selectedCategory);
   }
 
+  useEffect(() => console.log('selectedCategory: ', selectedCategory))
   const onSaveItem = selectedItemData => {
     props.onSaveItem(selectedItemData);
     props.onSaveAmount(selectedItemData.amount)

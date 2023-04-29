@@ -8,8 +8,8 @@ const ToppingItemForm = props => {
   const submitHandler = (e) => {
     e.preventDefault();
     const enteredAmount = Number(amountInputRef.current.value);
-    console.log(enteredAmount)
-    // props.onSaveItem(enteredAmount);
+    console.log('form에서 받은 수량: ', enteredAmount)
+    props.onSaveItem(enteredAmount); // 여기서 onSaveItem을 호출했기 때문에 ToppingItem에서 onSaveItem이 실행되고 selectedItemData 객체가 만들어짐
   }
 
   return (
