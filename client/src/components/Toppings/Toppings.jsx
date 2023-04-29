@@ -69,7 +69,7 @@ const Toppings = props => {
   useEffect(() => console.log('selectedCategory: ', selectedCategory))
   const onSaveItem = selectedItemData => {
     props.onSaveItem(selectedItemData);
-    props.onSaveAmount(selectedItemData.amount)
+    // props.onSaveAmount(selectedItemData.amount)
   }
 
   if (isLoading) {
