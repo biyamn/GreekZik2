@@ -7,13 +7,13 @@ const AvailableToppings = props => {
     props.onSaveItem(selectedItemData);
   }
 
-  // filteredCategoty: 선택한 카테고리에 있는 모든 재료 객체가 담긴 배열
-  const filteredCategoty = props.backendData.filter(category => {
+  // filteredCategory: 선택한 카테고리에 있는 모든 재료 객체가 담긴 배열
+  const filteredCategory = props.backendData.filter(category => {
     return category.id === props.selectedCategory;
   })
 
-  console.log('filteredCategoty: ', filteredCategoty)
-  const toppingsList = filteredCategoty[0].DUMMY_TOPPINGS.map(topping => 
+  console.log('filteredCategory: ', filteredCategory)
+  const toppingsList = filteredCategory[0].DUMMY_TOPPINGS.map(topping => 
     <ToppingItem
       id={topping.id}
       key={topping.id}
@@ -24,7 +24,7 @@ const AvailableToppings = props => {
     />
   )
 
-  const tList = filteredCategoty[0].DUMMY_TOPPINGS.map(topping => topping);
+  const tList = filteredCategory[0].DUMMY_TOPPINGS.map(topping => topping);
   tList;
   
   return (
