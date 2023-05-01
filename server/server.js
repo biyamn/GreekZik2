@@ -27,7 +27,7 @@ const data = [
         name: '딸기맛(100g)',
         description: '설향딸기의 달콤함을 담은 딸기 그릭요거트',
         price: 4500,
-        amount: 1,
+        amount: 2,
       },
       {
         id: 't4',
@@ -55,7 +55,7 @@ const data = [
         name: '딸기맛(100g)',
         description: '설향딸기의 달콤함을 담은 딸기 그릭요거트',
         price: 4500,
-        amount: 1,
+        amount: 3,
       },
       {
         id: 't8',
@@ -89,7 +89,7 @@ const data = [
         name: '바닐라 그래놀라',
         description: '바닐라빈을 듬뿍 넣은 수제 바닐라 그래놀라',
         price: 1500,
-        amount: 1,
+        amount: 4,
       },
       {
         id: 't4',
@@ -117,7 +117,7 @@ const data = [
         name: '바닐라 그래놀라',
         description: '바닐라빈을 듬뿍 넣은 수제 바닐라 그래놀라',
         price: 1500,
-        amount: 1,
+        amount: 5,
       },
       {
         id: 't8',
@@ -137,7 +137,7 @@ const data = [
         name: '딸기 수제청',
         description: '새콤달콤한 설향딸기로 만든 수제 딸기청',
         price: 2000,
-        amount: 1,
+        amount: 6,
       },
       {
         id: 't2',
@@ -165,7 +165,7 @@ const data = [
         name: '딸기 수제청',
         description: '새콤달콤한 설향딸기로 만든 수제 딸기청',
         price: 2000,
-        amount: 1,
+        amount: 7,
       },
       {
         id: 't6',
@@ -199,7 +199,7 @@ const data = [
         name: '초코칩',
         description: '인기만점 작은 물방울 모양의 초코칩',
         price: 800,
-        amount: 1,
+        amount: 8,
       },
       {
         id: 't2',
@@ -241,7 +241,7 @@ const data = [
         name: '후르츠링',
         description: '새콤달콤한 무지개색의 후르츠링 ',
         price: 800,
-        amount: 1,
+        amount: 9,
       },
       {
         id: 't8',
