@@ -35,7 +35,13 @@ const AvailableToppings = props => {
         onSaveItem={onSaveItem}
       />
       {topping.amount}
-      <ToppingItemForm key={topping.id} amount={topping.amount} onSaveItem={onSaveItem} id={topping.id} topping={topping} />
+      <ToppingItemForm 
+        key={topping.id} 
+        amount={topping.amount} 
+        onSaveItem={onSaveItem} 
+        id={topping.id} 
+        topping={topping} 
+      />
     </React.Fragment>
   )
 
