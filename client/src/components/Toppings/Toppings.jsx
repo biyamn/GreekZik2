@@ -8,7 +8,7 @@ import classes from './Toppings.module.css';
 const Toppings = props => {
   const [backendData, setBackendData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [selectedCategory, setSelectedCategory] = useState('c1');
+  const [selectedCategory, setSelectedCategory] = useState('ca1');
 
   useEffect(() => {
     fetch('http://localhost:5000/api').then(

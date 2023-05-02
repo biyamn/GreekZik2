@@ -24,6 +24,7 @@ const AvailableToppings = props => {
   })
 
   // console.log('filteredCategory: ', filteredCategory)
+  console.log(filteredCategory[0])
   const toppingsList = filteredCategory[0].DUMMY_TOPPINGS.map(topping => 
     <React.Fragment key={topping.id}>
       <ToppingItem
