@@ -17,14 +17,14 @@ const AvailableToppings = props => {
     props.onSaveItem(item);
   }
 
-
+console.log('back: ', props.backendData)
   // filteredCategory: 선택한 카테고리에 있는 모든 재료 객체가 담긴 배열
   const filteredCategory = props.backendData.filter(category => {
     return category.id === props.selectedCategory;
   })
 
   // console.log('filteredCategory: ', filteredCategory)
-  console.log(filteredCategory[0])
+  console.log(filteredCategory)
   const toppingsList = filteredCategory[0].DUMMY_TOPPINGS.map(topping => 
     <React.Fragment key={topping.id}>
       <ToppingItem
@@ -36,11 +36,10 @@ const AvailableToppings = props => {
         onSaveItem={onSaveItem}
       />
       {topping.amount}
-      <ToppingItemForm 
-        key={topping.id} 
+      <ToppingItemForm
+        id={topping.id}  
         amount={topping.amount} 
         onSaveItem={onSaveItem} 
-        id={topping.id} 
         topping={topping} 
       />
     </React.Fragment>
