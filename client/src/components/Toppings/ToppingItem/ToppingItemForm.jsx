@@ -4,7 +4,7 @@ import classes from './ToppingItemForm.module.css';
 
 const ToppingItemForm = props => {
 
-  console.log('selectedTopping: ', props.topping) // 선택한 카테고리의 토핑들이 잘 나옴
+  // console.log('selectedTopping: ', props.topping) // 선택한 카테고리의 토핑들이 잘 나옴
   // 초기에 설정한 카테고리의 토핑들만 나옴
   const [itemState, setItemState] = useState({
     id: props.topping.id,
@@ -14,7 +14,7 @@ const ToppingItemForm = props => {
     amount: props.topping.amount
   });
 
-  console.log('selectedToppings: ', props.topping);
+  // console.log('selectedToppings: ', props.topping);
   // let item = {
   //   id: props.topping.id,
   //   name: props.topping.name,
@@ -24,7 +24,7 @@ const ToppingItemForm = props => {
   // };
 
   
-  console.log('itemState: ', itemState)
+  // console.log('itemState: ', itemState)
   // 8 1 1 1 1 1 9 1(선택된 카테고리의 amount들을 가져옴)
   // console.log('props.amount: ', props.amount)
   // 1 1 2 1 1 1 3 1(선택되는 거랑 상관없이 초기값으로 설정된 카테고리의 amount들을 가져옴)
@@ -32,9 +32,7 @@ const ToppingItemForm = props => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    const enteredAmount = Number(item.amount);
-    // console.log('form에서 받은 수량: ', enteredAmount)
-    item.amount = enteredAmount; // 여기서 onSaveItem을 호출했기 때문에 ToppingItem에서 onSaveItem이 실행되고 selectedItemData 객체가 만들어짐
+    props.onSaveItem(itemState);// 여기서 onSaveItem을 호출했기 때문에 ToppingItem에서 onSaveItem이 실행되고 selectedItemData 객체가 만들어짐
   }
 
   const onChangeHandler = (e) => {

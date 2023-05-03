@@ -3,7 +3,9 @@ import ToppingItemForm from './ToppingItemForm';
 import classes from './ToppingItem.module.css';
 
 const ToppingItem = props => {
-
+  const onSaveItem = itemState => {
+    props.onSaveItem(itemState);
+  }
   // 한 카테고리에 있는 재료들의 상세 설명을 map으로 펼쳤으므로 8개가 쭉 나올 거임
   return (
     <li className={classes.topping} key={props.key}>
@@ -12,6 +14,12 @@ const ToppingItem = props => {
         <div className={classes.price}>{`${props.price}원`}</div>
         <div className={classes.description}>{props.description}</div>
       </div>
+      <ToppingItemForm
+        id={props.id}  
+        amount={props.amount} 
+        onSaveItem={onSaveItem} 
+        topping={props.topping}
+      />
     </li>
   );
 };

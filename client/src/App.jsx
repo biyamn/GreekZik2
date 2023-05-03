@@ -19,7 +19,7 @@ function App() {
   const onSaveItem = selectedItemData => {
     const newTotalItemData = totalItemData.concat(selectedItemData);
     setTotalItemData(newTotalItemData);
-    const newTotalAmount = totalAmount + selectedItemData.amount;
+    const newTotalAmount = totalAmount + Number(selectedItemData.amount);
     setTotalAmount(newTotalAmount);
   }
 
