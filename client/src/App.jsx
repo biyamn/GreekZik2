@@ -8,7 +8,8 @@ function App() {
   const [cartIsShown, setCartIsShown] = useState(false);
   const [totalAmount, setTotalAmount] = useState(0);
   const [totalItemData, setTotalItemData] = useState([]);
-  
+  const [totalPrice, setTotalPrice] = useState(0);
+
   // const onSaveAmount = enteredAmount => {
   //   setTotalAmount(totalAmount + enteredAmount);
   //   // console.log(totalItemData) // 한박자씩 느림
@@ -21,7 +22,16 @@ function App() {
     setTotalItemData(newTotalItemData);
     const newTotalAmount = totalAmount + Number(selectedItemData.amount);
     setTotalAmount(newTotalAmount);
+
+    newTotalItemData.forEach(item =>{
+    setTotalPrice(totalPrice + item.amount * item.price);
+  })
+
   }
+  
+  
+  
+
 
   const showCartHandler = () => {
     setCartIsShown(true);
@@ -33,7 +43,7 @@ function App() {
 
   return (
     <>
-      {cartIsShown && <Cart hideCartHandler={hideCartHandler} totalItemData={totalItemData} />}
+      {cartIsShown && <Cart hideCartHandler={hideCartHandler} totalItemData={totalItemData} totalPrice={totalPrice} />}
       <Header showCartHandler={showCartHandler} totalAmount={totalAmount} />
       <main>
         <Toppings onSaveItem={onSaveItem} />
