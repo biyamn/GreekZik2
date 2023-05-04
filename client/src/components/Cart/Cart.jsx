@@ -11,11 +11,12 @@ const Cart = props => {
           key={item.id} 
           name={item.name} 
           amount={item.amount} 
-          price={item.price} 
+          price={item.price.toLocaleString(3)} 
         />
       )}
     </ul>
     );
+  const commaSeparatedPrice = props.totalPrice.toLocaleString(3);
 
   return (
     <Modal hideCartHandler={props.hideCartHandler}>
@@ -24,7 +25,7 @@ const Cart = props => {
       </div>
       <div className={classes.total}>
         <span>총계</span>
-        <span>{props.totalPrice}</span>
+        <span>{commaSeparatedPrice}원</span>
       </div>
       <div className={classes.actions}>
         <button 
