@@ -9,7 +9,9 @@ const Toppings = props => {
   const [backendData, setBackendData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState('ca1');
-
+  const [categories, setCategories] = useState([
+    backendData
+  ]);
   useEffect(() => {
     fetch('http://localhost:5000/api').then(
       response => {
@@ -72,6 +74,27 @@ const Toppings = props => {
     // props.onSaveAmount(selectedItemData.amount)
   }
 
+  const filteredCategory = backendData.filter(category => {
+    return category.id === selectedCategory;
+  })
+
+  const onSaveCategories = itemState => {
+    const newCategories = filteredCategory.map(categories => {
+      return categories.DUMMY_TOPPINGS.map(category => {
+        
+        if (category.id === itemState.id) {
+        //   console.log('category.id', category.id);
+        // console.log('itemState.id', itemState.id);
+          return {...category, amount: itemState.amount};
+        }
+        return category;
+      })
+    }
+    )
+    setCategories(newCategories)
+  }
+
+  console.log('업데이트된 전체 상태: ', categories)
   if (isLoading) {
     return <div>Loading...</div>
   } else {
@@ -89,9 +112,11 @@ const Toppings = props => {
                 </ul>
               </div>
               <AvailableToppings
-                backendData={backendData}
                 selectedCategory={selectedCategory} 
                 onSaveItem={onSaveItem}
+                onSaveCategories={onSaveCategories}
+                filteredCategory={filteredCategory}
+                categories={categories}
               />
             </div>
           </Card>

@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ToppingItem from './ToppingItem/ToppingItem';
-import ToppingItemForm from './ToppingItem/ToppingItemForm';
 import classes from './AvailableToppings.module.css';
 
 const AvailableToppings = props => {
+  
 
   const onSaveItem = itemState => {
     // console.log('enteredAmount: ', enteredAmount)
@@ -15,17 +15,25 @@ const AvailableToppings = props => {
     // // console.log('prop으로 받은 데이터들 펼치기. 그 중에 name만: ', props.name)
 
     props.onSaveItem(itemState);
+
+    
   }
 
-// console.log('back: ', props.backendData)
-  // filteredCategory: 선택한 카테고리에 있는 모든 재료 객체가 담긴 배열
-  const filteredCategory = props.backendData.filter(category => {
-    return category.id === props.selectedCategory;
-  })
+  const onSaveCategories = itemState => {
+    props.onSaveCategories(itemState);
+  }
 
+  // console.log('categories: ', categories)
+  // console.log('back: ', props.backendData)
+  
   // console.log('filteredCategory: ', filteredCategory)
   // console.log(filteredCategory)
-  const toppingsList = filteredCategory[0].DUMMY_TOPPINGS.map(topping => 
+
+  // filteredCategory: 선택한 카테고리에 있는 모든 재료 객체가 담긴 배열
+  
+
+  
+  const toppingsList = props.filteredCategory[0].DUMMY_TOPPINGS.map(topping => 
     <React.Fragment key={topping.id}>
       <ToppingItem
         id={topping.id}       
@@ -34,7 +42,10 @@ const AvailableToppings = props => {
         price={topping.price}
         amount={topping.amount}
         onSaveItem={onSaveItem}
+        // onSaveItem={props.onSaveItem} 위에거 대신 이걸 쓰자.
         topping={topping}
+        categories={props.categories}
+        onSaveCategories={onSaveCategories}
       />
       {/* <ToppingItemForm
         id={topping.id}  

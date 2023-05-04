@@ -42,6 +42,8 @@ const ToppingItemForm = props => {
       amount: e.target.value,
       }
     })
+    props.onSaveCategories(itemState);
+    // console.log(itemState)
   }
 
   // useEffect(() => console.log('amount: ', item.amount));
