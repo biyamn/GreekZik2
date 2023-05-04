@@ -35,16 +35,30 @@ const ToppingItemForm = props => {
     props.onSaveItem(itemState);// 여기서 onSaveItem을 호출했기 때문에 ToppingItem에서 onSaveItem이 실행되고 selectedItemData 객체가 만들어짐
   }
 
+  // 비동기로 인한 오류가 발생함
+  // const onChangeHandler = (e) => {
+  //   setItemState(prev => {
+  //     return {
+  //     ...prev,
+  //     amount: e.target.value,
+  //     }
+  //   })
+  //   props.onSaveCategories(itemState);
+  //   // console.log('itemState: ', itemState)
+  // }
+
   const onChangeHandler = (e) => {
     setItemState(prev => {
-      return {
+      const newState = {
       ...prev,
       amount: e.target.value,
-      }
+      };
+      props.onSaveCategories(newState);
+      return newState
     })
-    props.onSaveCategories(itemState);
     // console.log('itemState: ', itemState)
   }
+
 
   // useEffect(() => console.log('amount: ', item.amount));
   return (

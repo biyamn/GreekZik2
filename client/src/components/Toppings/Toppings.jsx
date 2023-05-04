@@ -101,10 +101,10 @@ const Toppings = props => {
   // }
 
   const onSaveCategories = itemState => {
+    console.log('itemState.amount: ', itemState.amount);
     const newData = backendData.map(category => {
       const newToppings = category.DUMMY_TOPPINGS.map(topping => {
-        console.log('topping: ', topping)
-        console.log('category.id: ', category.id)
+        console.log('topping.id: ', topping.id)
         console.log('itemState.id: ',itemState.id)
         if (topping.id === itemState.id) {
           return {...topping, amount: itemState.amount};
@@ -112,6 +112,7 @@ const Toppings = props => {
         return topping;
       });
       console.log('newToppings: ', newToppings);
+      console.log('category: ', category)
       return {...category, DUMMY_TOPPINGS: newToppings}
     }
     )
