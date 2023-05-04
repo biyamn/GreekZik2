@@ -25,7 +25,7 @@ const ToppingItem = props => {
         amount={props.amount} 
         onSaveItem={onSaveItem} 
         topping={props.topping}
-        categories={props.categories}
+        backendData={props.backendData}
         onSaveCategories={onSaveCategories}
       />
     </li>

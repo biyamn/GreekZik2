@@ -9,9 +9,8 @@ const Toppings = props => {
   const [backendData, setBackendData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState('ca1');
-  const [categories, setCategories] = useState([
-    backendData
-  ]);
+
+  console.log('back: ', backendData);
   useEffect(() => {
     fetch('http://localhost:5000/api').then(
       response => {
@@ -74,27 +73,70 @@ const Toppings = props => {
     // props.onSaveAmount(selectedItemData.amount)
   }
 
-  const filteredCategory = backendData.filter(category => {
-    return category.id === selectedCategory;
-  })
+  // filteredCategory: 하나의 카테고리에 있는 배열. 하나의 객체를 포함하며 그 안에는 8개의 재료들이 있다. 
+  
+  
+
+//   const filteredCategory = backendData.filter(categories => {
+//     return categories.map(category => {
+//       return category.id === selectedCategory;
+//   })
+// })
+
+  // filteredCategory는 하나의 변수이고 selectedCategory가 바뀔 때마다 바뀌므로 여기에 의존하면 안됨
+  // const onSaveCategories = itemState => {
+  //   const newCategories = filteredCategory.map(categories => {
+  //     return categories.DUMMY_TOPPINGS.map(category => {
+        
+  //       if (category.id === itemState.id) {
+  //       //   console.log('category.id', category.id);
+  //       // console.log('itemState.id', itemState.id);
+  //         return {...category, amount: itemState.amount};
+  //       }
+  //       return category;
+  //     })
+  //   }
+  //   )
+  //   setCategories(newCategories)
+  // }
 
   const onSaveCategories = itemState => {
-    const newCategories = filteredCategory.map(categories => {
-      return categories.DUMMY_TOPPINGS.map(category => {
-        
-        if (category.id === itemState.id) {
-        //   console.log('category.id', category.id);
-        // console.log('itemState.id', itemState.id);
-          return {...category, amount: itemState.amount};
+    const newData = backendData.map(category => {
+      const newToppings = category.DUMMY_TOPPINGS.map(topping => {
+        console.log('topping: ', topping)
+        console.log('category.id: ', category.id)
+        console.log('itemState.id: ',itemState.id)
+        if (topping.id === itemState.id) {
+          return {...topping, amount: itemState.amount};
         }
-        return category;
-      })
+        return topping;
+      });
+      console.log('newToppings: ', newToppings);
+      return {...category, DUMMY_TOPPINGS: newToppings}
     }
     )
-    setCategories(newCategories)
+    console.log('newData: ', newData)
+    setBackendData(newData)
   }
 
-  console.log('업데이트된 전체 상태: ', categories)
+  // const onSaveCategories = itemState => {
+  //   // newData가 잘못됨. 더미데이터만 남아있음 id(ca1, ca2) 어디감?
+  //   const newData = backendData.map(categories => {
+  //     categories.DUMMY_TOPPINGS.map(category => {
+  //       if (category.id === itemState.id) {
+  //         console.log('category.id', category.id);
+  //         console.log('itemState.id', itemState.id);
+  //         return {...category, amount: itemState.amount};
+  //       }
+  //       return category;
+  //     })
+  //   }
+  //   )
+  //   console.log('newData: ', newData)
+  //   setBackendData(newData)
+  // }
+  
+
   if (isLoading) {
     return <div>Loading...</div>
   } else {
@@ -115,8 +157,7 @@ const Toppings = props => {
                 selectedCategory={selectedCategory} 
                 onSaveItem={onSaveItem}
                 onSaveCategories={onSaveCategories}
-                filteredCategory={filteredCategory}
-                categories={categories}
+                backendData={backendData}
               />
             </div>
           </Card>

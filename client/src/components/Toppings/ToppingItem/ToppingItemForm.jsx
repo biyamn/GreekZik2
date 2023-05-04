@@ -43,7 +43,7 @@ const ToppingItemForm = props => {
       }
     })
     props.onSaveCategories(itemState);
-    // console.log(itemState)
+    // console.log('itemState: ', itemState)
   }
 
   // useEffect(() => console.log('amount: ', item.amount));

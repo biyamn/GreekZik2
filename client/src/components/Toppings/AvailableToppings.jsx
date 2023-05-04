@@ -13,10 +13,7 @@ const AvailableToppings = props => {
     // // 이해 완. ToppingItemForm에서 onSaveItem을 호출하는 순간 selectedItemData가 만들어진다. 
     // // ToppingItem에서 받는 props는 하나의 재료에 대한 상세 정보이다. 8개의 객체 모음이 아니라. 그래서 props.id는 담은 재료의 id가 나오게 된다.
     // // console.log('prop으로 받은 데이터들 펼치기. 그 중에 name만: ', props.name)
-
     props.onSaveItem(itemState);
-
-    
   }
 
   const onSaveCategories = itemState => {
@@ -30,10 +27,16 @@ const AvailableToppings = props => {
   // console.log(filteredCategory)
 
   // filteredCategory: 선택한 카테고리에 있는 모든 재료 객체가 담긴 배열
-  
+  // console.log('filter 위에 backendData: ', props.backendData)
+  const filteredCategory = props.backendData.filter(category => {
+    // console.log('category: ', category)
+    // console.log('selectedCategory: ', props.selectedCategory)
+    // console.log('category.id: ', category.id);
+    return category.id === props.selectedCategory
+})
 
-  
-  const toppingsList = props.filteredCategory[0].DUMMY_TOPPINGS.map(topping => 
+  // console.log('filteredCategory: ', filteredCategory);
+  const toppingsList = filteredCategory[0].DUMMY_TOPPINGS.map(topping => 
     <React.Fragment key={topping.id}>
       <ToppingItem
         id={topping.id}       
@@ -44,7 +47,7 @@ const AvailableToppings = props => {
         onSaveItem={onSaveItem}
         // onSaveItem={props.onSaveItem} 위에거 대신 이걸 쓰자.
         topping={topping}
-        categories={props.categories}
+        backendData={props.backendData}
         onSaveCategories={onSaveCategories}
       />
       {/* <ToppingItemForm
