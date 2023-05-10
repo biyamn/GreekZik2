@@ -5,14 +5,6 @@ import classes from './ToppingItem.module.css';
 const ToppingItem = props => {
   const { price, key, name, description, id, amount, topping, backendData } = props;
 
-  const onSaveItem = itemState => {
-    props.onSaveItem(itemState);
-  }
-  
-  const onSaveCategories = itemState => {
-    props.onSaveCategories(itemState);
-  }
-  
   const commaSeparatedPrice = price.toLocaleString(3);
 
   return (
@@ -25,10 +17,10 @@ const ToppingItem = props => {
       <ToppingItemForm
         id={id}  
         amount={amount} 
-        onSaveItem={onSaveItem} 
+        onSaveItem={props.onSaveItem} 
         topping={topping}
         backendData={backendData}
-        onSaveCategories={onSaveCategories}
+        onSaveCategories={props.onSaveCategories}
       />
     </li>
   );

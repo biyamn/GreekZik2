@@ -1,7 +1,7 @@
 import React  from 'react';
 import classes from './Input.module.css';
 
-const Input = ({ input, onChange, label, input })=> {
+const Input = ({ input, onChange, label })=> {
   return (
     <div className={classes.input} >
       <label htmlFor={input.id} >{label}</label>

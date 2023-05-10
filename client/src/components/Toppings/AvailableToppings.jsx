@@ -2,16 +2,8 @@ import React from 'react';
 import ToppingItem from './ToppingItem/ToppingItem';
 import classes from './AvailableToppings.module.css';
 
-const AvailableToppings = (props) => {
+const AvailableToppings = props => {
   const {backendData, selectedCategory} = props
-
-  const onSaveItem = itemState => {
-    props.onSaveItem(itemState);
-  }
-
-  const onSaveCategories = itemState => {
-    props.onSaveCategories(itemState);
-  }
 
   const filteredCategory = backendData.filter(category => {
     return category.id === selectedCategory
@@ -25,10 +17,10 @@ const AvailableToppings = (props) => {
         description={topping.description}
         price={topping.price}
         amount={topping.amount}
-        onSaveItem={onSaveItem}
+        onSaveItem={props.onSaveItem}
         topping={topping}
         backendData={backendData}
-        onSaveCategories={onSaveCategories}
+        onSaveCategories={props.onSaveCategories}
       />
     </React.Fragment>
   )

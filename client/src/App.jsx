@@ -10,6 +10,14 @@ function App() {
   const [totalItemData, setTotalItemData] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
 
+  const onAdd = () => {
+
+  }
+
+  const onRemove = () => {
+
+  }
+
   const onSaveItem = selectedItemData => {
     const newTotalItemData = totalItemData.concat(selectedItemData);
     setTotalItemData(newTotalItemData);
@@ -30,7 +38,7 @@ function App() {
 
   return (
     <>
-      {cartIsShown && <Cart hideCartHandler={hideCartHandler} totalItemData={totalItemData} totalPrice={totalPrice} />}
+      {cartIsShown && <Cart hideCartHandler={hideCartHandler} totalItemData={totalItemData} totalPrice={totalPrice} onAdd={onAdd} onRemove={onRemove} />}
       <Header showCartHandler={showCartHandler} totalAmount={totalAmount} />
       <main>
         <Toppings onSaveItem={onSaveItem} />
