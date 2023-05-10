@@ -3,10 +3,10 @@ import Modal from '../UI/Modal';
 import CartItem from './CartItem';
 import classes from './Cart.module.css';
 
-const Cart = props => {
+const Cart = ({ totalItemData, totalPrice, hideCartHandler }) => {
   const cartItems = (
     <ul className={classes['cart-items']}>
-      {props.totalItemData.map(item => 
+      {totalItemData.map(item => 
         <CartItem 
           key={item.id} 
           name={item.name} 
@@ -16,10 +16,10 @@ const Cart = props => {
       )}
     </ul>
     );
-  const commaSeparatedPrice = props.totalPrice.toLocaleString(3);
+  const commaSeparatedPrice = totalPrice.toLocaleString(3);
 
   return (
-    <Modal hideCartHandler={props.hideCartHandler}>
+    <Modal hideCartHandler={hideCartHandler}>
       <div>
         {cartItems}
       </div>
@@ -30,7 +30,7 @@ const Cart = props => {
       <div className={classes.actions}>
         <button 
           className={classes['button--alt']} 
-          onClick={props.hideCartHandler}
+          onClick={hideCartHandler}
         >
           닫기
         </button>

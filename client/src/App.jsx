@@ -10,28 +10,15 @@ function App() {
   const [totalItemData, setTotalItemData] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
 
-  // const onSaveAmount = enteredAmount => {
-  //   setTotalAmount(totalAmount + enteredAmount);
-  //   // console.log(totalItemData) // 한박자씩 느림
-  // }
-
-  // useEffect(() => console.log(totalItemData)) // 제대로 찍힘
-
   const onSaveItem = selectedItemData => {
     const newTotalItemData = totalItemData.concat(selectedItemData);
     setTotalItemData(newTotalItemData);
     const newTotalAmount = totalAmount + Number(selectedItemData.amount);
     setTotalAmount(newTotalAmount);
-
     newTotalItemData.forEach(item =>{
     setTotalPrice(totalPrice + item.amount * item.price);
-  })
-
+    })
   }
-  
-  
-  
-
 
   const showCartHandler = () => {
     setCartIsShown(true);

@@ -1,14 +1,14 @@
 import React from 'react';
 import classes from './ToppingsCategory.module.css';
 
-const ToppingsCategory = (props) => {
+const ToppingsCategory = ({onSelect, backendData}) => {
 
   const selectHandler = (id) => {
-    props.onSelect(id);
+    onSelect(id);
   }
 
   return (
-    props.backendData.map(category => 
+    backendData.map(category => 
       <li
         key={category.id}
         onClick={() => selectHandler(category.id)}

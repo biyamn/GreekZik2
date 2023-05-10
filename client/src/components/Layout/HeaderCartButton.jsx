@@ -2,15 +2,15 @@ import React from 'react';
 import CartIcon from '../Cart/CartIcon';
 import classes from './HeaderCartButton.module.css';
 
-const HeaderCartButton = props => {
+const HeaderCartButton = ({ onClick, totalAmount }) => {
 
   return (
-    <button className={classes.button} onClick={props.onClick}>
+    <button className={classes.button} onClick={onClick}>
       <span className={classes.icon}>
         <CartIcon />
       </span>
       <span>장바구니</span>
-      <span className={classes.badge}>{props.totalAmount}</span>
+      <span className={classes.badge}>{totalAmount}</span>
     </button>
   );
 };

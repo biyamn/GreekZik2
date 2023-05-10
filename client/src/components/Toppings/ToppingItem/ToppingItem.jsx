@@ -3,6 +3,8 @@ import ToppingItemForm from './ToppingItemForm';
 import classes from './ToppingItem.module.css';
 
 const ToppingItem = props => {
+  const { price, key, name, description, id, amount, topping, backendData } = props;
+
   const onSaveItem = itemState => {
     props.onSaveItem(itemState);
   }
@@ -11,21 +13,21 @@ const ToppingItem = props => {
     props.onSaveCategories(itemState);
   }
   
-  const commaSeparatedPrice = props.price.toLocaleString(3);
-  // 한 카테고리에 있는 재료들의 상세 설명을 map으로 펼쳤으므로 8개가 쭉 나올 거임
+  const commaSeparatedPrice = price.toLocaleString(3);
+
   return (
-    <li className={classes.topping} key={props.key}>
+    <li className={classes.topping} key={key}>
       <div className={classes.namePriceDescription}>
-        <h3 className={classes.name}>{props.name}</h3>
+        <h3 className={classes.name}>{name}</h3>
         <div className={classes.price}>{`${commaSeparatedPrice}원`}</div>
-        <div className={classes.description}>{props.description}</div>
+        <div className={classes.description}>{description}</div>
       </div>
       <ToppingItemForm
-        id={props.id}  
-        amount={props.amount} 
+        id={id}  
+        amount={amount} 
         onSaveItem={onSaveItem} 
-        topping={props.topping}
-        backendData={props.backendData}
+        topping={topping}
+        backendData={backendData}
         onSaveCategories={onSaveCategories}
       />
     </li>
