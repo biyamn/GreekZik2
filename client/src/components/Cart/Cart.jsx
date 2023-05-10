@@ -9,6 +9,7 @@ const Cart = ({ totalItemData, totalPrice, hideCartHandler, onRemove, onAdd }) =
       {totalItemData.map(item => 
         <CartItem 
           key={item.id} 
+          id={item.id}
           name={item.name} 
           amount={item.amount} 
           price={item.price.toLocaleString(3)} 

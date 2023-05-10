@@ -10,7 +10,6 @@ const Toppings = ({ onSaveItem }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState('ca1');
 
-  console.log('back: ', backendData);
   useEffect(() => {
     fetch('http://localhost:5000/api').then(
       response => {
@@ -28,7 +27,6 @@ const Toppings = ({ onSaveItem }) => {
   }
 
   const onSaveCategories = itemState => {
-    console.log('itemState.amount: ', itemState.amount);
     const newData = backendData.map(category => {
       const newToppings = category.DUMMY_TOPPINGS.map(topping => {
         if (topping.id === itemState.id) {
