@@ -9,14 +9,14 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   const [cartIsShown, setCartIsShown] = useState(false);
-  const [totalAmount, setTotalAmount] = useState(0);
-  const [totalItemData, setTotalItemData] = useState([]);
-  const [totalPrice, setTotalPrice] = useState(0);
+  const [itemAmount, setItemAmount] = useState(0);
+  const [itemData, setItemData] = useState([]);
+  const [itemPrice, setItemPrice] = useState(0);
 
 
-  // totalItemData에서 +, - 버튼이 눌린 재료를 찾아서 amount를 업데이트해야 함.
+  // itemData에서 +, - 버튼이 눌린 재료를 찾아서 amount를 업데이트해야 함.
   // 그럼 id를 보내야겠군
-  // 이 id를 totalItemData에서 찾아서 amount를 업데이트해야 함.
+  // 이 id를 itemData에서 찾아서 amount를 업데이트해야 함.
   
   useEffect(() => {
     fetch('http://localhost:5000/api').then(
@@ -31,18 +31,20 @@ function App() {
   }, [])
 
   const onAdd = id => {
+
   }
 
   const onRemove = id => {
+
   }
 
   const onSaveItem = selectedItemData => {
-    const newTotalItemData = totalItemData.concat(selectedItemData);
-    setTotalItemData(newTotalItemData);
-    const newTotalAmount = totalAmount + Number(selectedItemData.amount);
-    setTotalAmount(newTotalAmount);
-    newTotalItemData.forEach(item =>{
-    setTotalPrice(totalPrice + item.amount * item.price);
+    const newItemData = itemData.concat(selectedItemData);
+    setItemData(newItemData);
+    const newAmount = itemAmount + Number(selectedItemData.amount);
+    setItemAmount(newAmount);
+    newItemData.forEach(item =>{
+      setItemPrice(itemPrice + item.amount * item.price);
     })
   }
 
@@ -59,8 +61,8 @@ function App() {
   } else {
     return (
       <>
-        {cartIsShown && <Cart hideCartHandler={hideCartHandler} totalItemData={totalItemData} totalPrice={totalPrice} onAdd={onAdd} onRemove={onRemove} />}
-        <Header showCartHandler={showCartHandler} totalAmount={totalAmount} />
+        {cartIsShown && <Cart hideCartHandler={hideCartHandler} itemData={itemData} itemPrice={itemPrice} onAdd={onAdd} onRemove={onRemove} />}
+        <Header showCartHandler={showCartHandler} itemAmount={itemAmount} />
         <main>
           <Toppings onSaveItem={onSaveItem} backendData={backendData} setBackendData={setBackendData} />
         </main>
