@@ -3,7 +3,7 @@ import Modal from '../UI/Modal';
 import CartItem from './CartItem';
 import classes from './Cart.module.css';
 
-const Cart = ({ itemData, itemPrice, hideCartHandler, onRemove, onAdd }) => {
+const Cart = ({ itemData, itemPrice, hideCartHandler, onRemove, onAdd, cartAmount }) => {
   const cartItems = (
     <ul className={classes['cart-items']}>
       {itemData.map(item => 
@@ -12,7 +12,7 @@ const Cart = ({ itemData, itemPrice, hideCartHandler, onRemove, onAdd }) => {
           categoryId={itemData.id}
           id={item.id}
           name={item.name} 
-          amount={item.amount} 
+          amount={cartAmount} 
           price={item.price.toLocaleString(3)} 
           onRemove={onRemove}
           onAdd={onAdd}
