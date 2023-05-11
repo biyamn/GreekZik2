@@ -4,7 +4,6 @@ import classes from './ToppingItem.module.css';
 
 const ToppingItem = props => {
   const { price, key, name, description, id, amount, topping, backendData } = props;
-
   const commaSeparatedPrice = price.toLocaleString(3);
 
   return (

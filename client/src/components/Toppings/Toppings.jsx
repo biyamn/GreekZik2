@@ -5,8 +5,7 @@ import ToppingsCategory from './ToppingsCategory';
 import Card from './../UI/Card';
 import classes from './Toppings.module.css';
 
-const Toppings = ({ onSaveItem, backendData, setBackendData }) => {
-  const [selectedCategory, setSelectedCategory] = useState('ca1');
+const Toppings = ({ onSaveItem, backendData, setBackendData, setSelectedCategory, selectedCategory }) => {
 
   const onSelect = (id) => {
     setSelectedCategory(id);

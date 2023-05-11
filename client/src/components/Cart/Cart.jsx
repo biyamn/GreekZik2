@@ -9,6 +9,7 @@ const Cart = ({ itemData, itemPrice, hideCartHandler, onRemove, onAdd }) => {
       {itemData.map(item => 
         <CartItem 
           key={item.id} 
+          categoryId={itemData.id}
           id={item.id}
           name={item.name} 
           amount={item.amount} 
