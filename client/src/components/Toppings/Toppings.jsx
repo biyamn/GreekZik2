@@ -5,22 +5,8 @@ import ToppingsCategory from './ToppingsCategory';
 import Card from './../UI/Card';
 import classes from './Toppings.module.css';
 
-const Toppings = ({ onSaveItem }) => {
-  const [backendData, setBackendData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+const Toppings = ({ onSaveItem, backendData, setBackendData }) => {
   const [selectedCategory, setSelectedCategory] = useState('ca1');
-
-  useEffect(() => {
-    fetch('http://localhost:5000/api').then(
-      response => {
-        return response.json()
-      }
-    ).then(
-      data => {
-      setIsLoading(false);
-      return setBackendData(data);
-    })
-  }, [])
 
   const onSelect = (id) => {
     setSelectedCategory(id);
@@ -40,33 +26,29 @@ const Toppings = ({ onSaveItem }) => {
     setBackendData(newData)
   }  
 
-  if (isLoading) {
-    return <div>Loading...</div>
-  } else {
-      return (
-        <div className={classes.toppings}>
-          <ToppingsSummary />
-          <Card>
-            <div className={classes.container}>
-              <div className={classes.ulContainer}>
-                <ul className={classes.liContainer}>
-                  <ToppingsCategory
-                    backendData={backendData}
-                    onSelect={onSelect}
-                  />
-                </ul>
-              </div>
-              <AvailableToppings
-                selectedCategory={selectedCategory} 
-                onSaveItem={onSaveItem}
-                onSaveCategories={onSaveCategories}
+  return (
+    <div className={classes.toppings}>
+      <ToppingsSummary />
+      <Card>
+        <div className={classes.container}>
+          <div className={classes.ulContainer}>
+            <ul className={classes.liContainer}>
+              <ToppingsCategory
                 backendData={backendData}
+                onSelect={onSelect}
               />
-            </div>
-          </Card>
+            </ul>
+          </div>
+          <AvailableToppings
+            selectedCategory={selectedCategory} 
+            onSaveItem={onSaveItem}
+            onSaveCategories={onSaveCategories}
+            backendData={backendData}
+          />
         </div>
-      );
+      </Card>
+    </div>
+    );
   }
-}
 
 export default Toppings;

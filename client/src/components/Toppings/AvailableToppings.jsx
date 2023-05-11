@@ -7,7 +7,7 @@ const AvailableToppings = props => {
 
   const filteredCategory = backendData.filter(category => {
     return category.id === selectedCategory
-})
+  })
 
   const toppingsList = filteredCategory[0].DUMMY_TOPPINGS.map(topping => 
     <React.Fragment key={topping.id}>
