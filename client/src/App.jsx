@@ -9,12 +9,13 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState('ca1');
   const [cartIsShown, setCartIsShown] = useState(false);
+
+  const [cartItems, setCartItems] = useState([]);
   const [itemAmount, setItemAmount] = useState(0);
-  const [itemData, setItemData] = useState([]);
-  const [itemPrice, setItemPrice] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(0);
+
   const [cartAmount, setCartAmount] = useState(1);
 
-  // 카테고리 ID도 넘겨야 함
   useEffect(() => {
     fetch('http://localhost:5000/api').then(
       response => {
@@ -27,6 +28,9 @@ function App() {
     })
   }, [])
 
+  // ToppingItemForm에서 올린 수량이.. CartItem의 amount에 반영되어야 하는 것임. 이것은 backendData와는 관련이 없다.
+  // 그럼 뭐와 관련이 있는가? Cart에 있는 item들의 데이터를 모아서 하나의 state로 관리해야 하나? backendData처럼
+
   const onAdd = (id, amount) => {
     // 💥 왜 안되는지 모르겠음. 
     // ✨ return을 안써서 그런가?? 하 맞았음 .. ===이거 전에 return을 안써서 그럼
@@ -34,11 +38,6 @@ function App() {
     // const addedCategory = backendData.filter(category => {
     //   return category.id === selectedCategory
     // })
-    
-    // const addedItem = addedCategory[0].DUMMY_TOPPINGS.filter(item => {
-    //   return item.id === id
-    // })
-    // console.log('addedItem: ', addedItem);
 
     // 💥 마지막에 선택한 카테고리의 addedItem만 정상적으로 받아오고 이전에 선택한 재료는 빈 배열이 됨
     // ✨ selectedCategory를 쓰면 안되고 여기서 새로 만들어야 함.
@@ -71,7 +70,7 @@ function App() {
           // ✨
           const newAmount = itemAmount + 1;
           setItemAmount(amount => amount+1);
-          setCartAmount(itemAmount);
+          setCartAmount(itemAmount); // CartItem으로 보내질 amount
           console.log('topping: ', {...topping, amount: newAmount})
           return {...topping, amount: newAmount};
         }
@@ -90,13 +89,17 @@ function App() {
   }
 
   const onSaveItem = selectedItemData => {
-    const newItemData = itemData.concat(selectedItemData);
-    setItemData(newItemData);
+    const newItemData = cartItems.concat(selectedItemData);
+    setCartItems(newItemData);
+
     const newAmount = itemAmount + Number(selectedItemData.amount);
     setItemAmount(newAmount);
+
     newItemData.forEach(item =>{
-      setItemPrice(itemPrice + item.amount * item.price);
+      setTotalPrice(totalPrice + item.amount * item.price);
     })
+
+    console.log('cartItems: ', cartItems);
   }
 
   const showCartHandler = () => {
@@ -114,8 +117,8 @@ function App() {
       <>
         {cartIsShown && 
           <Cart hideCartHandler={hideCartHandler} 
-            itemData={itemData} 
-            itemPrice={itemPrice} 
+            cartItems={cartItems} 
+            totalPrice={totalPrice} 
             cartAmount={cartAmount}
             onAdd={onAdd} 
             onRemove={onRemove} 

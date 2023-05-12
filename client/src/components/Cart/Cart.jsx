@@ -3,13 +3,13 @@ import Modal from '../UI/Modal';
 import CartItem from './CartItem';
 import classes from './Cart.module.css';
 
-const Cart = ({ itemData, itemPrice, hideCartHandler, onRemove, onAdd, cartAmount }) => {
-  const cartItems = (
+const Cart = ({ cartItems, totalPrice, hideCartHandler, onRemove, onAdd, cartAmount }) => {
+  const cartItem = (
     <ul className={classes['cart-items']}>
-      {itemData.map(item => 
+      {cartItems.map(item => 
         <CartItem 
           key={item.id} 
-          categoryId={itemData.id}
+          categoryId={cartItems.id}
           id={item.id}
           name={item.name} 
           amount={cartAmount} 
@@ -20,16 +20,16 @@ const Cart = ({ itemData, itemPrice, hideCartHandler, onRemove, onAdd, cartAmoun
       )}
     </ul>
     );
-  const commaSeparatedPrice = itemPrice.toLocaleString(3);
+  const commaSeparatedTotalPrice = totalPrice.toLocaleString(3);
 
   return (
     <Modal hideCartHandler={hideCartHandler}>
       <div>
-        {cartItems}
+        {cartItem}
       </div>
       <div className={classes.total}>
         <span>총계</span>
-        <span>{commaSeparatedPrice}원</span>
+        <span>{commaSeparatedTotalPrice}원</span>
       </div>
       <div className={classes.actions}>
         <button 
