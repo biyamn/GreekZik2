@@ -16,8 +16,6 @@ function App() {
   const [headerAmount, setHeaderAmount] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
 
-  const [cartAmount, setCartAmount] = useState(1);
-
   useEffect(() => {
     fetch('http://localhost:5000/api').then(
       response => {
@@ -43,9 +41,22 @@ function App() {
     // })
 
     // 일단 담아진 amount를 cartAmount로 업데이트시켜줄 거임
-    setCartAmount(amount);
+    
     // cartAmount가 Cart 안의 CartItem의 Amount에 반영되도록 해야 함
-    // 
+    // cartItems에서 id가 일치하는 것을 찾아서 amount를 업데이트시켜줘야 함
+    // 그리고 cartItems도 업데이트시켜줘야 함
+    
+    const updatedArr = cartItems.map((cur) => {
+      if (cur.id === id) {
+        cur.amount++;
+      }
+      return cur;
+    });
+    console.log('updatedArr:', updatedArr)
+    const newTotalAmount = updatedArr.reduce((acc, cur) => acc + (cur.amount * cur.price), 0);
+    console.log('newTotalAmount:', newTotalAmount)
+    setTotalPrice(newTotalAmount)
+    setCartItems(updatedArr);
 
 
     // ✨ 사실 이건 쓸모가 없다. 왜냐면 backendData를 바꾸는 것과는 관련이 전혀 없기 때문이다. 
@@ -101,6 +112,7 @@ function App() {
   // 💚💚💚💚💚💚 onSaveItem 💚💚💚💚💚💚 -> 같으면 합쳐지는 걸 해야 함
   // onAdd에서 id를 가져와서 그 수량을 업데이트시켜줘야 하는데 이걸 안합치고 하면 id를 못찾음.. 분명 오류가 남 
   // 그래서 나중에 하려고 했지만 이걸 먼저 해야한다.
+  // ✨ reduce와 find로 해결
   const onSaveItem = selectedItemData => {
     const newItemData = cartItems.concat(selectedItemData);
 
@@ -115,9 +127,12 @@ function App() {
     }, []);
 
     setCartItems(mergedItemData);
+
+
     
     const newTotalAmount = headerAmount + Number(selectedItemData.amount); // 기존+선택수량
     setHeaderAmount(newTotalAmount);
+
     newItemData.forEach(item =>{
       setTotalPrice(totalPrice + item.amount * item.price);
     })
@@ -140,7 +155,6 @@ function App() {
           <Cart hideCartHandler={hideCartHandler} 
             cartItems={cartItems} 
             totalPrice={totalPrice} 
-            cartAmount={cartAmount}
             onAdd={onAdd} 
             onRemove={onRemove} 
         />}
