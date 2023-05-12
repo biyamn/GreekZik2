@@ -4,6 +4,8 @@ import Header from './components/Layout/Header';
 import Toppings from './components/Toppings/Toppings';
 import './App.css';
 
+// 일단 onSaveItem함수부터 완성하고 onAdd를 봐야 한다!
+
 function App() {
   const [backendData, setBackendData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -11,7 +13,7 @@ function App() {
   const [cartIsShown, setCartIsShown] = useState(false);
 
   const [cartItems, setCartItems] = useState([]);
-  const [itemAmount, setItemAmount] = useState(0);
+  const [headerAmount, setHeaderAmount] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
 
   const [cartAmount, setCartAmount] = useState(1);
@@ -64,13 +66,13 @@ function App() {
       const newToppings = category.DUMMY_TOPPINGS.map(topping => {
         if (topping.id === id) {
           console.log('id: ', id)
-          console.log('itemAmount before: ', itemAmount)
+          console.log('headerAmount before: ', headerAmount)
 
-          // 💥 return문에서 갱신된 itemAmount가 반영되지 않음
+          // 💥 return문에서 갱신된 headerAmount가 반영되지 않음
           // ✨
-          const newAmount = itemAmount + 1;
-          setItemAmount(amount => amount+1);
-          setCartAmount(itemAmount); // CartItem으로 보내질 amount
+          const newAmount = headerAmount + 1;
+          setHeaderAmount(amount => amount+1);
+          setCartAmount(headerAmount); // CartItem으로 보내질 amount
           console.log('topping: ', {...topping, amount: newAmount})
           return {...topping, amount: newAmount};
         }
@@ -88,12 +90,13 @@ function App() {
 
   }
 
+  // 💚💚💚💚💚💚 onSaveItem 💚💚💚💚💚💚
   const onSaveItem = selectedItemData => {
     const newItemData = cartItems.concat(selectedItemData);
     setCartItems(newItemData);
-
-    const newAmount = itemAmount + Number(selectedItemData.amount);
-    setItemAmount(newAmount);
+    console.log('selectedItemData: ', selectedItemData)
+    const newAmount = headerAmount + Number(selectedItemData.amount);
+    setHeaderAmount(newAmount);
 
     newItemData.forEach(item =>{
       setTotalPrice(totalPrice + item.amount * item.price);
@@ -123,7 +126,7 @@ function App() {
             onAdd={onAdd} 
             onRemove={onRemove} 
         />}
-        <Header showCartHandler={showCartHandler} itemAmount={itemAmount} />
+        <Header showCartHandler={showCartHandler} headerAmount={headerAmount} />
         <main>
           <Toppings 
             onSaveItem={onSaveItem} 
