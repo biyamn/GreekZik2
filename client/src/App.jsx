@@ -32,7 +32,7 @@ function App() {
   // 그럼 뭐와 관련이 있는가? Cart에 있는 item들의 데이터를 모아서 하나의 state로 관리해야 하나? backendData처럼
 
   // 💙💙💙💙💙 onAdd 함수 💙💙💙💙💙
-  const onAdd = (id, amount) => {
+  const onAdd = (id) => {
     // 💥 왜 안되는지 모르겠음. 
     // ✨ return을 안써서 그런가?? 하 맞았음 .. ===이거 전에 return을 안써서 그럼
     // 🔎 https://ko.javascript.info/arrow-functions-basics#ref-541
@@ -52,9 +52,9 @@ function App() {
       }
       return cur;
     });
-    console.log('updatedArr:', updatedArr)
+
     const newTotalAmount = updatedArr.reduce((acc, cur) => acc + (cur.amount * cur.price), 0);
-    console.log('newTotalAmount:', newTotalAmount)
+
     setTotalPrice(newTotalAmount)
     setCartItems(updatedArr);
 
@@ -105,8 +105,18 @@ function App() {
     //   setBackendData(newData)
     // }
   }
-  const onRemove = (id, amount) => {
+  const onRemove = (id) => {
+    const updatedArr = cartItems.map((cur) => {
+      if (cur.id === id) {
+        cur.amount--;
+      }
+      return cur;
+    });
 
+    const newTotalAmount = updatedArr.reduce((acc, cur) => acc + (cur.amount * cur.price), 0);
+    
+    setTotalPrice(newTotalAmount)
+    setCartItems(updatedArr);
   }
 
   // 💚💚💚💚💚💚 onSaveItem 💚💚💚💚💚💚 -> 같으면 합쳐지는 걸 해야 함
