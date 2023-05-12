@@ -106,17 +106,24 @@ function App() {
     // }
   }
   const onRemove = (id) => {
+    // 근데 여기서 수량이 음수가 되고 총계가 음수가 되는 문제가 발생함. 수량이 0 미만이 되면 요소를 삭제하는 것이 필요하다
     const updatedArr = cartItems.map((cur) => {
-      if (cur.id === id) {
+      if (cur.amount > 0 && cur.id === id) {
         cur.amount--;
+      } else if (cur.amount === 0 && cur.id === id) { 
+        cur.amount
       }
       return cur;
     });
 
     const newTotalAmount = updatedArr.reduce((acc, cur) => acc + (cur.amount * cur.price), 0);
-    
     setTotalPrice(newTotalAmount)
-    setCartItems(updatedArr);
+
+    const removedArr = updatedArr.filter((cur) => { 
+      return cur.amount > 0
+    })
+
+    setCartItems(removedArr);
   }
 
   // 💚💚💚💚💚💚 onSaveItem 💚💚💚💚💚💚 -> 같으면 합쳐지는 걸 해야 함
