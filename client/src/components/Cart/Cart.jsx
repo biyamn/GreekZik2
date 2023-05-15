@@ -29,7 +29,7 @@ const Cart = ({ cartItems, totalPrice, hideCartHandler, onRemove, onAdd }) => {
         {cartItem}
       </div>
       <div className={classes.total}>
-        <span>총계</span>
+        <span>총액</span>
         <span>{commaSeparatedTotalPrice}원</span>
       </div>
       <div className={classes.actions}>
