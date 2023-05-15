@@ -116,7 +116,10 @@ function App() {
       return cur;
     });
 
-    const newTotalAmount = updatedArr.reduce((acc, cur) => acc + (cur.amount * cur.price), 0);
+    const newTotalAmount = updatedArr.reduce((acc, cur) => {
+      return acc + (cur.amount * cur.price);
+    }, 0);
+    
     setTotalPrice(newTotalAmount)
 
     const removedArr = updatedArr.filter((cur) => { 
