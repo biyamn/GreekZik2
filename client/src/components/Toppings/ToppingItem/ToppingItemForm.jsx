@@ -21,7 +21,8 @@ const ToppingItemForm = ({ topping, onSaveItem, onSaveCategories, id }) => {
     setItemState(prev => {
       const newState = {
       ...prev,
-      amount: e.target.value,
+      // typeof(newState.amount) -> string
+      amount: Number(e.target.value),
       };
       onSaveCategories(newState);
       return newState
