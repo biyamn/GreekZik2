@@ -27,7 +27,6 @@ function App() {
   }, [])
 
   const onAdd = (id) => {
-    
     const updatedArr = cartItems.map((cur) => {
       if (cur.id === id) {
         cur.amount++;
@@ -35,11 +34,15 @@ function App() {
       return cur;
     });
 
-    const newTotalAmount = updatedArr.reduce((acc, cur) => acc + (cur.amount * cur.price), 0);
+    const newTotalPrice = updatedArr.reduce((acc, cur) => acc + (cur.amount * cur.price), 0);
 
-    setTotalPrice(newTotalAmount)
+    setTotalPrice(newTotalPrice)
     setCartItems(updatedArr);
+    
+    const newTotalAmount = updatedArr.reduce((acc, cur) => acc + cur.amount, 0); 
+    setHeaderAmount(newTotalAmount)
   }
+
   const onRemove = (id) => {
     const updatedArr = cartItems.map((cur) => {
       if (cur.amount > 0 && cur.id === id) {
@@ -50,17 +53,20 @@ function App() {
       return cur;
     });
 
-    const newTotalAmount = updatedArr.reduce((acc, cur) => {
+    const newTotalPrice = updatedArr.reduce((acc, cur) => {
       return acc + (cur.amount * cur.price);
     }, 0);
     
-    setTotalPrice(newTotalAmount)
+    setTotalPrice(newTotalPrice)
 
     const removedArr = updatedArr.filter((cur) => { 
       return cur.amount > 0
     })
 
     setCartItems(removedArr);
+
+    const newTotalAmount = removedArr.reduce((acc, cur) => acc + cur.amount, 0); 
+    setHeaderAmount(newTotalAmount)
   }
 
   const onSaveItem = selectedItemData => {
