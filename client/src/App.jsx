@@ -1,5 +1,5 @@
 import Cart from './components/Cart/Cart';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useReducer } from 'react';
 import Header from './components/Layout/Header';
 import Toppings from './components/Toppings/Toppings';
 import './App.css';
@@ -11,7 +11,6 @@ function App() {
   const [cartIsShown, setCartIsShown] = useState(false);
 
   const [cartItems, setCartItems] = useState([]);
-  const [headerAmount, setHeaderAmount] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
@@ -26,19 +25,40 @@ function App() {
     })
   }, [])
 
-  const handleAddItem = (id) => {
-    dispatch({
-      type: 'added',
-      id: id
-    })
-  }
+  // const reducer = (state, action) => { 
+  //   switch (action.type) {
+  //     case 'added':
+  //       return state.map((cur) => {  
+  //         if (cur.id === action.id) {
+  //           return { ...cur, amount: cur.amount + 1 }
+  //         }
+  //         return cur;
+  //       })
+  //     case 'removed':
+  //       return state.map((cur) => {
+  //         if (cur.id === action.id) {
+  //           return { ...cur, amount: cur.amount - 1 }
+  //         }
+  //         return cur;
+  //       })
+  //     default:
+  //       return state;
+  //   }
+  // }
 
-  const handleRemoveItem = (id) => {  
-    dispatch({
-      type: 'removed',
-      id: id
-    })
+  // const handleAddItem = (id) => {
+  //   dispatch({
+  //     type: 'added',
+  //     id: id
+  //   })
+  // }
 
+  // const handleRemoveItem = (id) => {  
+  //   dispatch({
+  //     type: 'removed',
+  //     id: id
+  //   })
+  // }
 
   // reducer => added
   const onAdd = (id) => {
@@ -54,8 +74,7 @@ function App() {
     setTotalPrice(newTotalPrice)
     setCartItems(updatedArr);
     
-    const newTotalAmount = updatedArr.reduce((acc, cur) => acc + cur.amount, 0); 
-    setHeaderAmount(newTotalAmount)
+    const newTotalAmount = updatedArr.reduce((acc, cur) => acc + cur.amount, 0);
   }
 
   // reducer => removed
@@ -82,7 +101,6 @@ function App() {
     setCartItems(removedArr);
 
     const newTotalAmount = removedArr.reduce((acc, cur) => acc + cur.amount, 0); 
-    setHeaderAmount(newTotalAmount)
   }
 
   const onSaveItem = selectedItemData => {
@@ -99,9 +117,6 @@ function App() {
     }, []);
 
     setCartItems(mergedItemData);
-
-    const newTotalAmount = headerAmount + Number(selectedItemData.amount); // 기존+선택수량
-    setHeaderAmount(newTotalAmount);
 
     newItemData.forEach(item =>{
       setTotalPrice(totalPrice + item.amount * item.price);
@@ -128,7 +143,7 @@ function App() {
             onAdd={onAdd} 
             onRemove={onRemove} 
         />}
-        <Header showCartHandler={showCartHandler} headerAmount={headerAmount} />
+        <Header showCartHandler={showCartHandler} cartItems={cartItems} />
         <main>
           <Toppings 
             onSaveItem={onSaveItem} 
