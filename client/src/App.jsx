@@ -4,14 +4,44 @@ import Header from './components/Layout/Header';
 import Toppings from './components/Toppings/Toppings';
 import './App.css';
 
+const initialCartState = {
+  cartItems: [],
+  totalPrice: 0
+}
+
+const cartReducer = (state, action) => { 
+  switch (action.type) {
+    case 'added':
+      return state.map((cur) => {  
+        if (cur.id === action.id) {
+          return { ...cur, amount: cur.amount + 1 }
+        }
+        return cur;
+      })
+    case 'removed':
+      return state.map((cur) => {
+        if (cur.id === action.id) {
+          return { ...cur, amount: cur.amount - 1 }
+        }
+        return cur;
+      })
+    default:
+      return state;
+  }
+}
+
 function App() {
   const [backendData, setBackendData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState('ca1');
   const [cartIsShown, setCartIsShown] = useState(false);
+  const [cartState, dispatch] = useReducer(
+    cartReducer,
+    initialCartState
+  );
 
-  const [cartItems, setCartItems] = useState([]);
-  const [totalPrice, setTotalPrice] = useState(0);
+  // const [cartItems, setCartItems] = useState([]);
+  // const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
     fetch('http://localhost:5000/api').then(
@@ -23,42 +53,21 @@ function App() {
       setIsLoading(false);
       return setBackendData(data);
     })
-  }, [])
+  }, [])  
 
-  // const reducer = (state, action) => { 
-  //   switch (action.type) {
-  //     case 'added':
-  //       return state.map((cur) => {  
-  //         if (cur.id === action.id) {
-  //           return { ...cur, amount: cur.amount + 1 }
-  //         }
-  //         return cur;
-  //       })
-  //     case 'removed':
-  //       return state.map((cur) => {
-  //         if (cur.id === action.id) {
-  //           return { ...cur, amount: cur.amount - 1 }
-  //         }
-  //         return cur;
-  //       })
-  //     default:
-  //       return state;
-  //   }
-  // }
+  const handleAddItem = (id) => {
+    dispatch({
+      type: 'added',
+      id: id
+    })
+  }
 
-  // const handleAddItem = (id) => {
-  //   dispatch({
-  //     type: 'added',
-  //     id: id
-  //   })
-  // }
-
-  // const handleRemoveItem = (id) => {  
-  //   dispatch({
-  //     type: 'removed',
-  //     id: id
-  //   })
-  // }
+  const handleRemoveItem = (id) => {  
+    dispatch({
+      type: 'removed',
+      id: id
+    })
+  }
 
   // reducer => added
   const onAdd = (id) => {
@@ -74,7 +83,6 @@ function App() {
     setTotalPrice(newTotalPrice)
     setCartItems(updatedArr);
     
-    const newTotalAmount = updatedArr.reduce((acc, cur) => acc + cur.amount, 0);
   }
 
   // reducer => removed
@@ -100,7 +108,6 @@ function App() {
 
     setCartItems(removedArr);
 
-    const newTotalAmount = removedArr.reduce((acc, cur) => acc + cur.amount, 0); 
   }
 
   const onSaveItem = selectedItemData => {
@@ -140,8 +147,8 @@ function App() {
           <Cart hideCartHandler={hideCartHandler} 
             cartItems={cartItems} 
             totalPrice={totalPrice} 
-            onAdd={onAdd} 
-            onRemove={onRemove} 
+            handleAddItem={handleAddItem} 
+            handleRemoveItem={handleRemoveItem} 
         />}
         <Header showCartHandler={showCartHandler} cartItems={cartItems} />
         <main>
