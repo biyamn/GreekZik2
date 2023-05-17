@@ -26,6 +26,21 @@ function App() {
     })
   }, [])
 
+  const handleAddItem = (id) => {
+    dispatch({
+      type: 'added',
+      id: id
+    })
+  }
+
+  const handleRemoveItem = (id) => {  
+    dispatch({
+      type: 'removed',
+      id: id
+    })
+
+
+  // reducer => added
   const onAdd = (id) => {
     const updatedArr = cartItems.map((cur) => {
       if (cur.id === id) {
@@ -43,6 +58,7 @@ function App() {
     setHeaderAmount(newTotalAmount)
   }
 
+  // reducer => removed
   const onRemove = (id) => {
     const updatedArr = cartItems.map((cur) => {
       if (cur.amount > 0 && cur.id === id) {
