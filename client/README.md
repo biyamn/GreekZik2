@@ -15,6 +15,8 @@ case 'added': {
       ];
     } 
 ```
+- action이 무엇이냐? dispatch 안에 있는 게 action임. 처음봐서 다 헷갈린다 
+
 #### useContext
 - <a href='https://react.dev/learn/passing-data-deeply-with-context'>공식문서: Passing Data Deeply with Context</a>를 읽고 있음
 - passing props로 먼저 시작해서 context 과사용을 줄이라고 한다.
