@@ -12,7 +12,7 @@ const initialCartState = {
 const cartReducer = (state, action) => { 
   switch (action.type) {
     case 'added':
-      const updatedArr = cartItems.map((cur) => {
+      const updatedArr = state.items.map((cur) => {
         if (cur.id === id) {
           cur.amount++;
         }
@@ -59,6 +59,7 @@ function App() {
     })
   }, [])  
 
+  // dispatch 안에 있는 게 action임
   const handleAddItem = (id) => {
     dispatch({
       type: 'added',
