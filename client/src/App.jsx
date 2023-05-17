@@ -5,19 +5,23 @@ import Toppings from './components/Toppings/Toppings';
 import './App.css';
 
 const initialCartState = {
-  cartItems: [],
+  items: [],
   totalPrice: 0
 }
 
 const cartReducer = (state, action) => { 
   switch (action.type) {
     case 'added':
-      return state.map((cur) => {  
-        if (cur.id === action.id) {
-          return { ...cur, amount: cur.amount + 1 }
+      const updatedArr = cartItems.map((cur) => {
+        if (cur.id === id) {
+          cur.amount++;
         }
         return cur;
-      })
+      });
+      const newTotalPrice = updatedArr.reduce((acc, cur) => acc + (cur.amount * cur.price), 0);
+      setTotalPrice(newTotalPrice)
+      setCartItems(updatedArr);
+      
     case 'removed':
       return state.map((cur) => {
         if (cur.id === action.id) {
