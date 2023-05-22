@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import ToppingsSummary from './ToppingsSummary';
 import AvailableToppings from './AvailableToppings';
 import ToppingsCategory from './ToppingsCategory';
 import Card from './../UI/Card';
 import classes from './Toppings.module.css';
 
-const Toppings = ({ onSaveItem, backendData, setBackendData, setSelectedCategory, selectedCategory }) => {
+const Toppings = ({ backendData, setBackendData, setSelectedCategory, selectedCategory }) => {
 
   const onSelect = (id) => {
     setSelectedCategory(id);
@@ -40,7 +40,6 @@ const Toppings = ({ onSaveItem, backendData, setBackendData, setSelectedCategory
           </div>
           <AvailableToppings
             selectedCategory={selectedCategory} 
-            onSaveItem={onSaveItem}
             onSaveCategories={onSaveCategories}
             backendData={backendData}
           />

@@ -1,13 +1,14 @@
 import Cart from './components/Cart/Cart';
-import React, { useState, useEffect, useReducer } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from './components/Layout/Header';
 import Toppings from './components/Toppings/Toppings';
+import CartProvider from './store/cartProvider';
 import './App.css';
 
-const initialCartState = {
-  items: [],
-  totalPrice: 0
-}
+// const initialCartState = {
+//   items: [],
+//   totalPrice: 0
+// }
 
 
 // const onSaveItem = selectedItemData => {
@@ -24,100 +25,100 @@ const initialCartState = {
 //   }, []);
 // }
 
-const cartReducer = (state, action) => { 
-  switch (action.type) {
-    case 'saved': {
-      // console.log('saved')
-      // console.log('action.selectedItemData: ', action.selectedItemData)
-      const newItemData = state.items.concat(action.selectedItemData);
-      // console.log('newItemData: ', newItemData)
-      const mergedItemData = newItemData.reduce((acc, cur) => {
-        const found = acc.find((item) => item.id === cur.id);
-        if (found) {
-          found.amount += Number(cur.amount);
-        } else {
-          acc.push({...cur});
-        }
-        return acc;
-      }, []);
-      console.log('mergedItemData: ', mergedItemData)
-      const newTotalPrice = mergedItemData.reduce((acc, cur) => {
-        return acc + (cur.amount * cur.price);
-      }, 0);
-      // console.log('newTotalPrice: ', newTotalPrice)
-      return {
-        items: mergedItemData,
-        totalPrice: newTotalPrice
-      }
-    }
+// const cartReducer = (state, action) => { 
+//   switch (action.type) {
+//     case 'saved': {
+//       // console.log('saved')
+//       // console.log('action.selectedItemData: ', action.selectedItemData)
+//       const newItemData = state.items.concat(action.selectedItemData);
+//       // console.log('newItemData: ', newItemData)
+//       const mergedItemData = newItemData.reduce((acc, cur) => {
+//         const found = acc.find((item) => item.id === cur.id);
+//         if (found) {
+//           found.amount += Number(cur.amount);
+//         } else {
+//           acc.push({...cur});
+//         }
+//         return acc;
+//       }, []);
+//       console.log('mergedItemData: ', mergedItemData)
+//       const newTotalPrice = mergedItemData.reduce((acc, cur) => {
+//         return acc + (cur.amount * cur.price);
+//       }, 0);
+//       // console.log('newTotalPrice: ', newTotalPrice)
+//       return {
+//         items: mergedItemData,
+//         totalPrice: newTotalPrice
+//       }
+//     }
 
-    case 'added': {
-      console.log('added')
-      // 아래 updatedArr 함수에서 뭔가 잘못됨.
-      console.log('state.items: ', state.items)
-      const updatedArr = state.items.map((cur) => {
-        console.log('before cur: ', cur) // 맞음
-        console.log('cur.id: ', cur.id);
-        console.log('action.id: ', action.id)
-        if (cur.id === action.id) {
-          console.log('id 일치')
-          return {
-            ...cur,
-            amount: cur.amount + 1
-          }
-          // cur.amount++;
-        }
-        console.log('after cur: ', cur) // 틀림
-        return cur;
-      });
+//     case 'added': {
+//       console.log('added')
+//       // 아래 updatedArr 함수에서 뭔가 잘못됨.
+//       console.log('state.items: ', state.items)
+//       const updatedArr = state.items.map((cur) => {
+//         console.log('before cur: ', cur) // 맞음
+//         console.log('cur.id: ', cur.id);
+//         console.log('action.id: ', action.id)
+//         if (cur.id === action.id) {
+//           console.log('id 일치')
+//           return {
+//             ...cur,
+//             amount: cur.amount + 1
+//           }
+//           // cur.amount++;
+//         }
+//         console.log('after cur: ', cur) // 틀림
+//         return cur;
+//       });
 
-      console.log('updatedArr: ', updatedArr);
-      const newTotalPrice = updatedArr.reduce((acc, cur) => acc + (cur.amount * cur.price), 0);
+//       console.log('updatedArr: ', updatedArr);
+//       const newTotalPrice = updatedArr.reduce((acc, cur) => acc + (cur.amount * cur.price), 0);
       
-      return {
-        items: updatedArr,
-        totalPrice: newTotalPrice
-      }
-    }
+//       return {
+//         items: updatedArr,
+//         totalPrice: newTotalPrice
+//       }
+//     }
 
-    case 'removed': {
-      const updatedArr = state.items.map((cur) => {
-        if (cur.amount > 0 && cur.id === action.id) {
-          cur.amount--;
-        } else if (cur.amount === 0 && cur.id === action.id) { 
-          cur.amount
-        }
-        return cur;
-      });
+//     case 'removed': {
+//       const updatedArr = state.items.map((cur) => {
+//         if (cur.amount > 0 && cur.id === action.id) {
+//           cur.amount--;
+//         } else if (cur.amount === 0 && cur.id === action.id) { 
+//           cur.amount
+//         }
+//         return cur;
+//       });
   
-      const removedArr = updatedArr.filter((cur) => { 
-        return cur.amount > 0
-      })
+//       const removedArr = updatedArr.filter((cur) => { 
+//         return cur.amount > 0
+//       })
 
-      const newTotalPrice = updatedArr.reduce((acc, cur) => {
-        return acc + (cur.amount * cur.price);
-      }, 0);
+//       const newTotalPrice = updatedArr.reduce((acc, cur) => {
+//         return acc + (cur.amount * cur.price);
+//       }, 0);
       
-      return {
-        items: removedArr,
-        totalPrice: newTotalPrice
-      }
-    }
+//       return {
+//         items: removedArr,
+//         totalPrice: newTotalPrice
+//       }
+//     }
 
-    default:
-      return state;
-  }
-}
+//     default:
+//       return state;
+//   }
+// }
 
 function App() {
   const [backendData, setBackendData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState('ca1');
   const [cartIsShown, setCartIsShown] = useState(false);
-  const [cartState, dispatch] = useReducer(
-    cartReducer,
-    initialCartState
-  );
+  // const [cartState, dispatch] = useReducer(
+  //   cartReducer,
+  //   initialCartState
+  // );
 
   // const [cartItems, setCartItems] = useState([]);
   // const [totalPrice, setTotalPrice] = useState(0);
@@ -134,27 +135,27 @@ function App() {
     })
   }, [])  
 
-  const handleSaveItem = (selectedItemData) => {
-    dispatch({
-      type: 'saved',
-      id: selectedItemData.id,
-      selectedItemData: selectedItemData,
-    })
-  }
+  // const handleSaveItem = (selectedItemData) => {
+  //   dispatch({
+  //     type: 'saved',
+  //     id: selectedItemData.id,
+  //     selectedItemData: selectedItemData,
+  //   })
+  // }
 
-  const handleAddItem = (id) => {
-    dispatch({
-      type: 'added',
-      id: id,
-    })
-  }
+  // const handleAddItem = (id) => {
+  //   dispatch({
+  //     type: 'added',
+  //     id: id,
+  //   })
+  // }
 
-  const handleRemoveItem = (id) => {  
-    dispatch({
-      type: 'removed',
-      id: id
-    })
-  }
+  // const handleRemoveItem = (id) => {  
+  //   dispatch({
+  //     type: 'removed',
+  //     id: id
+  //   })
+  // }
 
   // const onAdd = (id) => {
   //   const updatedArr = cartItems.map((cur) => {
@@ -195,35 +196,35 @@ function App() {
 
   // }
 
-  const onSaveItem = selectedItemData => {
-    const newItemData = cartState.items.concat(selectedItemData);
+  // const onSaveItem = selectedItemData => {
+  //   const newItemData = cartState.items.concat(selectedItemData);
 
-    const mergedItemData = newItemData.reduce((acc, cur) => {
-      const found = acc.find((item) => item.id === cur.id);
-      if (found) {
-        found.amount += Number(cur.amount);
-      } else {
-        acc.push({...cur});
-      }
-      return acc;
-    }, []);
+  //   const mergedItemData = newItemData.reduce((acc, cur) => {
+  //     const found = acc.find((item) => item.id === cur.id);
+  //     if (found) {
+  //       found.amount += Number(cur.amount);
+  //     } else {
+  //       acc.push({...cur});
+  //     }
+  //     return acc;
+  //   }, []);
 
-    mergedItemData.forEach((item) => {
-      handleAddItem(item.id);
-    });
+  //   mergedItemData.forEach((item) => {
+  //     handleAddItem(item.id);
+  //   });
 
-    handleAddItem(mergedItemData, newTotalPrice)
+  //   handleAddItem(mergedItemData, newTotalPrice)
 
-    setCartItems(mergedItemData);
+  //   setCartItems(mergedItemData);
 
-    const newTotalPrice = mergedItemData.reduce((acc, cur) => {
-      return acc + (cur.amount * cur.price);
-    }, 0);
+  //   const newTotalPrice = mergedItemData.reduce((acc, cur) => {
+  //     return acc + (cur.amount * cur.price);
+  //   }, 0);
 
-    newItemData.forEach(item =>{
-      setTotalPrice(totalPrice + item.amount * item.price);
-    })
-  };
+  //   newItemData.forEach(item =>{
+  //     setTotalPrice(totalPrice + item.amount * item.price);
+  //   })
+  // };
 
   const showCartHandler = () => {
     setCartIsShown(true);
@@ -237,25 +238,19 @@ function App() {
     return <div>Loading...</div>
   } else {
     return (
-      <>
+      <CartProvider>
         {cartIsShown && 
-          <Cart hideCartHandler={hideCartHandler} 
-            onAdd={handleAddItem}
-            onRemove={handleRemoveItem}
-            cartItems={cartState.items} 
-            totalPrice={cartState.totalPrice} 
-        />}
-        <Header showCartHandler={showCartHandler} cartItems={cartState.items} />
+          <Cart hideCartHandler={hideCartHandler} />}
+        <Header showCartHandler={showCartHandler} />
         <main>
           <Toppings 
-            onSaveItem={handleSaveItem} 
             backendData={backendData} 
             setBackendData={setBackendData} 
             selectedCategory={selectedCategory}  
             setSelectedCategory={setSelectedCategory} 
           />
         </main>
-      </>
+      </CartProvider>
     );
   }
 }

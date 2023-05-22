@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import Input from '../../UI/Input';
 import classes from './ToppingItemForm.module.css';
+import CartContext from '../../../store/cart-context';
+const ToppingItemForm = ({ topping, onSaveCategories, id }) => {
+  const cartCtx = useContext(CartContext);
 
-const ToppingItemForm = ({ topping, onSaveItem, onSaveCategories, id }) => {
-  
   const [itemState, setItemState] = useState({
     id: topping.id,
     name: topping.name,
@@ -14,7 +15,7 @@ const ToppingItemForm = ({ topping, onSaveItem, onSaveCategories, id }) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    onSaveItem(itemState);
+    cartCtx.onSave(itemState);
   }
 
   const onChangeHandler = (e) => {

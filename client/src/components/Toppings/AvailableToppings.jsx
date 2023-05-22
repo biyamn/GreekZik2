@@ -17,7 +17,6 @@ const AvailableToppings = props => {
         description={topping.description}
         price={topping.price}
         amount={topping.amount}
-        onSaveItem={props.onSaveItem}
         topping={topping}
         backendData={backendData}
         onSaveCategories={props.onSaveCategories}
