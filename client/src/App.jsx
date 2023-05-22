@@ -40,7 +40,7 @@ const cartReducer = (state, action) => {
         }
         return acc;
       }, []);
-      // console.log('mergedItemData: ', mergedItemData)
+      console.log('mergedItemData: ', mergedItemData)
       const newTotalPrice = mergedItemData.reduce((acc, cur) => {
         return acc + (cur.amount * cur.price);
       }, 0);
@@ -53,14 +53,25 @@ const cartReducer = (state, action) => {
 
     case 'added': {
       console.log('added')
+      // 아래 updatedArr 함수에서 뭔가 잘못됨.
+      console.log('state.items: ', state.items)
       const updatedArr = state.items.map((cur) => {
-        console.log(cur)
+        console.log('before cur: ', cur) // 맞음
+        console.log('cur.id: ', cur.id);
+        console.log('action.id: ', action.id)
         if (cur.id === action.id) {
-          cur.amount++;
+          console.log('id 일치')
+          return {
+            ...cur,
+            amount: cur.amount + 1
+          }
+          // cur.amount++;
         }
+        console.log('after cur: ', cur) // 틀림
         return cur;
       });
-  
+
+      console.log('updatedArr: ', updatedArr);
       const newTotalPrice = updatedArr.reduce((acc, cur) => acc + (cur.amount * cur.price), 0);
       
       return {
