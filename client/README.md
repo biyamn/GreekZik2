@@ -18,6 +18,18 @@ case 'added': {
 - action이 무엇이냐? dispatch 안에 있는 게 action임. 처음봐서 다 헷갈린다 
 - 오 switch는 각 case가 같은 scope라서 같은 변수 선언이 안되는 건가 if는 되는데! 맞고, 해결 방법도 있었음: https://dev.to/robogeek95/scoping-variables-in-the-switch-statement-1gig
 - onSave를 도저히 살릴 수가 없음!! 왜냐면 여기서 reducer가 아닌 state를 쓰고있기 때문ㅇ....ㄱ
+- +랑 -를 누르면 1개가 아니라 2개씩 늘고 준다!!!왜이러는데!!!왜이러는거임??? 아니 id가 같지 않은데도...... 어어
+(React에서 상태를 업데이트할 때, 직접적으로 상태를 수정하는 것은 권장되지 않습니다. 대신, 새로운 상태 객체를 생성하여 변경한 후에 해당 상태로 업데이트해야 합니다. added 액션의 경우, map 메서드 내에서 cur.amount를 증가시키는 것은 직접적으로 상태를 수정하는 것입니다.)
+(공식문서: https://react.dev/learn/updating-objects-in-state#copying-objects-with-the-spread-syntax)
+```jsx
+return {
+    ...cur,
+    amount: cur.amount + 1
+  }
+  // cur.amount++;
+```
+
+
 #### useContext
 - <a href='https://react.dev/learn/passing-data-deeply-with-context'>공식문서: Passing Data Deeply with Context</a>를 읽고 있음
 - passing props로 먼저 시작해서 context 과사용을 줄이라고 한다.
