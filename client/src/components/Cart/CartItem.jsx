@@ -11,8 +11,8 @@ const CartItem = ({ price, name, amount, id, onAdd, onRemove}) => {
         </div>
       </div>
       <div className={classes.actions}>
-        <button onClick={() => onAdd(id)}>-</button>
-        <button onClick={() => onRemove(id)}>+</button>
+        <button onClick={() => onRemove(id)}>-</button>
+        <button onClick={() => onAdd(id)}>+</button>
       </div>
     </li>
   );

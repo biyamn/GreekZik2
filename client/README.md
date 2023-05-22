@@ -16,7 +16,8 @@ case 'added': {
     } 
 ```
 - action이 무엇이냐? dispatch 안에 있는 게 action임. 처음봐서 다 헷갈린다 
-
+- 오 switch는 각 case가 같은 scope라서 같은 변수 선언이 안되는 건가 if는 되는데! 맞고, 해결 방법도 있었음: https://dev.to/robogeek95/scoping-variables-in-the-switch-statement-1gig
+- onSave를 도저히 살릴 수가 없음!! 왜냐면 여기서 reducer가 아닌 state를 쓰고있기 때문ㅇ....ㄱ
 #### useContext
 - <a href='https://react.dev/learn/passing-data-deeply-with-context'>공식문서: Passing Data Deeply with Context</a>를 읽고 있음
 - passing props로 먼저 시작해서 context 과사용을 줄이라고 한다.
