@@ -54,4 +54,12 @@
 
   <img src='https://user-images.githubusercontent.com/101965666/236651958-6a582e29-de5b-4c90-bfb9-9f187a7f8b48.gif'>
 
+<br>
+
+### 6. 
+- **구현 과정을 담은 포스팅**: <a href='https://velog.io/@hamham/%EC%A3%BC%EB%AC%B8%EC%95%B1-6%ED%83%84-%EB%8B%B4%EA%B8%B0-%EA%B8%B0%EB%8A%A5-%EB%A7%8C%EB%93%A4%EA%B8%B02'>[주문앱 6탄] 담기 기능 만들기(2)</a>
+- **구현 결과**: 
+
+  <img src='https://github.com/biyamn/GreekYogurt-Order-App/assets/101965666/da1b3cd5-e59b-41d5-be8c-892156d4515e'>
+
   
