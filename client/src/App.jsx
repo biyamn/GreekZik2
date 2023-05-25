@@ -12,7 +12,7 @@ function App() {
   const [cartIsShown, setCartIsShown] = useState(false);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api').then(
+    fetch('https://greek-yogurt-order-app-17351-default-rtdb.firebaseio.com/data.json').then(
       response => {
         return response.json()
       }
