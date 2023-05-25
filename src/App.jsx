@@ -20,16 +20,6 @@ function App() {
     }
     fetchData();
   }, [])
-  //   fetch('https://greek-yogurt-order-app-17351-default-rtdb.firebaseio.com/data.json').then(
-  //     response => {
-  //       return response.json()
-  //     }
-  //   ).then(
-  //     data => {
-  //     setIsLoading(false);
-  //     return setBackendData(data);
-  //   })
-  // }, [])  
   
   const showCartHandler = () => {
     setCartIsShown(true);
