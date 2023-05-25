@@ -12,16 +12,24 @@ function App() {
   const [cartIsShown, setCartIsShown] = useState(false);
 
   useEffect(() => {
-    fetch('https://greek-yogurt-order-app-17351-default-rtdb.firebaseio.com/data.json').then(
-      response => {
-        return response.json()
-      }
-    ).then(
-      data => {
+    const fetchData = async () => {
+      const response = await fetch('https://greek-yogurt-order-app-17351-default-rtdb.firebaseio.com/data.json');
+      const data = await response.json();
       setIsLoading(false);
-      return setBackendData(data);
-    })
-  }, [])  
+      setBackendData(data);
+    }
+    fetchData();
+  }, [])
+  //   fetch('https://greek-yogurt-order-app-17351-default-rtdb.firebaseio.com/data.json').then(
+  //     response => {
+  //       return response.json()
+  //     }
+  //   ).then(
+  //     data => {
+  //     setIsLoading(false);
+  //     return setBackendData(data);
+  //   })
+  // }, [])  
   
   const showCartHandler = () => {
     setCartIsShown(true);
