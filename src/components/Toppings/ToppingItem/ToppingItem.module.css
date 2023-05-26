@@ -1,4 +1,5 @@
 .container {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -18,19 +19,24 @@
   display: block;
 }
 
-
-.namePriceDescription {
-  display: flex; 
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.image {
+  display: block;
+  object-fit:cover;
+  width: 100%;
 }
+
+.container:hover .image{
+  display: none;
+}
+
+
 
 .name {
   font-weight: 500;
   width: 9rem;
   margin-right: 0.5rem;
   font-size: 1.3rem;
+  position: absolute;
 }
 
 .price {
