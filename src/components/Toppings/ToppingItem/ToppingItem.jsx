@@ -11,7 +11,7 @@ const ToppingItem = props => {
       <div className={classes.namePriceDescription}>
         <h3 className={classes.name}>{name}</h3>
         <div className={classes.price}>{`${commaSeparatedPrice}원`}</div>
-        <div className={classes.description}>{description}</div>
+        {/* <div className={classes.description}>{description}</div> */}
       </div>
       <ToppingItemForm
         id={id}  

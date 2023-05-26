@@ -1,5 +1,7 @@
 .toppings {
-  max-width: 70rem;
+  display: flex;
+  flex-wrap: wrap;
+  /* max-width: 70rem; */
   width: 90%;
   margin: 2rem auto;
   margin-top: 0;
