@@ -10,18 +10,17 @@ const AvailableToppings = props => {
   })
   console.log('filteredCategory: ', filteredCategory)
   const toppingsList = filteredCategory[0].DUMMY_TOPPINGS.map(topping => 
-    <div key={topping.id}>
-      <ToppingItem
-        id={topping.id}       
-        name={topping.name}
-        description={topping.description}
-        price={topping.price}
-        amount={topping.amount}
-        topping={topping}
-        backendData={backendData}
-        onSaveCategories={props.onSaveCategories}
-      />
-    </div>
+    <ToppingItem
+      key={topping.id}
+      id={topping.id}       
+      name={topping.name}
+      description={topping.description}
+      price={topping.price}
+      amount={topping.amount}
+      topping={topping}
+      backendData={backendData}
+      onSaveCategories={props.onSaveCategories}
+    />
   )
   
   return (

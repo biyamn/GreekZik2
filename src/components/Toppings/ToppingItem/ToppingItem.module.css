@@ -3,12 +3,9 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding-bottom: 0.3rem;
-  border-bottom: 1px solid #ccc;
-  height: 5.5rem;
-  border: 2px solid pink;
+  margin: 1rem;
   width: 20rem;
-  height: 15rem;
+  height: 20rem;
 }
 
 .container:hover .description{
@@ -20,13 +17,14 @@
 }
 
 .image {
-  display: block;
-  object-fit:cover;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-}
-
-.container:hover .image{
-  display: none;
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
+  z-index: -1;
 }
 
 
@@ -36,7 +34,8 @@
   width: 9rem;
   margin-right: 0.5rem;
   font-size: 1.3rem;
-  position: absolute;
+  position: relative;
+  z-index: 1;
 }
 
 .price {
@@ -45,6 +44,8 @@
   width: 5rem;
   margin-right: 2rem;
   text-align: right;
+  position: relative;
+  z-index: 1;
 }
 
 .description {
@@ -52,8 +53,12 @@
   font-size: 1.3rem;
   /* width: 23rem; */
   margin-right: 0.5rem;
+  position: relative;
+  z-index: 1;
 }
 
 .form {
   display: none;
+  position: relative;
+  z-index: 1;
 }
