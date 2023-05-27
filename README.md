@@ -56,10 +56,24 @@
 
 <br>
 
-### 6. 
+### 6. 장바구니 담기 기능을 완성했습니다. 
+- 장바구니 안에서 수량 추가/감소 기능을 구현했습니다.
+- 장바구니 안에서 재료 삭제 기능을 구현하였습니다. 
+- 담은 재료가 장바구니에 이미 있으면 정보를 누적해서 보여주는 기능을 구현했습니다.
+  
 - **구현 과정을 담은 포스팅**: <a href='https://velog.io/@hamham/%EC%A3%BC%EB%AC%B8%EC%95%B1-6%ED%83%84-%EB%8B%B4%EA%B8%B0-%EA%B8%B0%EB%8A%A5-%EB%A7%8C%EB%93%A4%EA%B8%B02'>[주문앱 6탄] 담기 기능 만들기(2)</a>
 - **구현 결과**: 
 
   <img src='https://github.com/biyamn/GreekYogurt-Order-App/assets/101965666/da1b3cd5-e59b-41d5-be8c-892156d4515e'>
 
-  
+<br>
+
+### 7. reducer를 사용하여 주문앱을 리팩토링했습니다.
+- **구현 과정을 담은 포스팅**: <a href='https://velog.io/@hamham/%EC%A3%BC%EB%AC%B8%EC%95%B1-7%ED%83%84-%EB%A6%AC%ED%8C%A9%ED%86%A0%EB%A7%81%ED%95%98%EA%B8%B0useReducer-Hook-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0-pm7pggvk'>[주문앱 7탄] 리팩토링하기(useReducer)</a>
+
+<br>
+
+### 8. context API를 사용하여 주문앱을 리팩토링했습니다.
+- **구현 과정을 담은 포스팅**: <a href='https://velog.io/@hamham/%EC%A3%BC%EB%AC%B8%EC%95%B1-7%ED%83%84-%EB%A6%AC%ED%8C%A9%ED%86%A0%EB%A7%81%ED%95%98%EA%B8%B0useContext'>[주문앱 8탄] 리팩토링하기(useContext)</a>
+
+<br>
