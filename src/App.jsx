@@ -6,6 +6,7 @@ import CartProvider from './store/cartProvider';
 import './App.css';
 
 function App() {
+  // issue test
   const [backendData, setBackendData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState('ca1');
