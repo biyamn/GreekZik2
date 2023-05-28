@@ -6,19 +6,27 @@ import CartProvider from './store/CartProvider';
 import './App.css';
 
 function App() {
-  // issue test
   const [backendData, setBackendData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState('ca1');
   const [cartIsShown, setCartIsShown] = useState(false);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch('https://greek-yogurt-order-app-17351-default-rtdb.firebaseio.com/data.json');
-      const data = await response.json();
-      setIsLoading(false);
-      setBackendData(data);
+  const [isLoading, setIsLoading] = useState(true);
+
+  const fetchData = async () => {
+    setIsLoading(true);
+    try {
+    const response = await fetch('https://greek-yogurt-order-app-17351-default-rtdb.firebaseio.com/data.json');
+    const data = await response.json();
+    // setIsLoading을 같은 핸들러에서 써도 되는 이유: await로 시간차가 생기기 때문에
+    setIsLoading(false);
+    setBackendData(data);
+    } catch(error) {
+      console.log('error: ', error)
     }
+  }
+
+  useEffect(() => {
+    console.log('useEffect 시작')
     fetchData();
   }, [])
   

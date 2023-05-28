@@ -6,12 +6,13 @@ import Card from './../UI/Card';
 import classes from './Toppings.module.css';
 
 const Toppings = ({ backendData, setBackendData, setSelectedCategory, selectedCategory }) => {
-
+  console.log('backendData: ', backendData)
   const onSelect = (id) => {
     setSelectedCategory(id);
   }
 
   const onSaveCategories = itemState => {
+    
     const newData = backendData.map(category => {
       const newToppings = category.DUMMY_TOPPINGS.map(topping => {
         if (topping.id === itemState.id) {
