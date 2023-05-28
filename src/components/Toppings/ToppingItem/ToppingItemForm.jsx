@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import Input from '../../UI/Input';
 import classes from './ToppingItemForm.module.css';
-import CartContext from '../../../store/cart-context';
+import CartContext from '../../../store/CartContext';
 const ToppingItemForm = ({ topping, onSaveCategories, id }) => {
   const cartCtx = useContext(CartContext);
 
