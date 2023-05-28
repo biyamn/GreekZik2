@@ -3,7 +3,7 @@ import Input from '../../UI/Input';
 import classes from './ToppingItemForm.module.css';
 import CartContext from '../../../store/cartContext';
 const ToppingItemForm = ({ topping, onSaveCategories, id }) => {
-  const cartCtx = useContext(CartContext);
+  const { onSave } = useContext(CartContext);
 
   const [itemState, setItemState] = useState({
     id: topping.id,
@@ -15,7 +15,7 @@ const ToppingItemForm = ({ topping, onSaveCategories, id }) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    cartCtx.onSave(itemState);
+    onSave(itemState);
   }
 
   const onChangeHandler = (e) => {

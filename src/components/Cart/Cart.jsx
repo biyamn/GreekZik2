@@ -5,11 +5,11 @@ import classes from './Cart.module.css';
 import CartContext from '../../store/cartContext'; 
 
 const Cart = ({ hideCartHandler }) => {
-  const cartCtx = useContext(CartContext);
+  const { items, totalPrice } = useContext(CartContext);
 
   const cartItem = (
     <ul className={classes['cart-items']}>
-      {cartCtx.items.map(item => 
+      {items.map(item => 
         <CartItem 
           key={item.id} 
           id={item.id}
@@ -21,7 +21,7 @@ const Cart = ({ hideCartHandler }) => {
     </ul>
     );
     
-  const commaSeparatedTotalPrice = cartCtx.totalPrice.toLocaleString(3);
+  const commaSeparatedTotalPrice = totalPrice.toLocaleString(3);
 
   return (
     <Modal hideCartHandler={hideCartHandler}>
