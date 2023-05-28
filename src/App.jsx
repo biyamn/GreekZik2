@@ -9,8 +9,7 @@ function App() {
   const [backendData, setBackendData] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('ca1');
   const [cartIsShown, setCartIsShown] = useState(false);
-
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   const fetchData = async () => {
     setIsLoading(true);
@@ -40,7 +39,7 @@ function App() {
 
   if (isLoading) {
     return <div>Loading...</div>
-  } else {
+  } else if (backendData.length > 0) {
     return (
       <CartProvider>
         {cartIsShown && 
