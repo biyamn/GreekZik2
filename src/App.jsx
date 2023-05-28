@@ -9,15 +9,18 @@ function App() {
   const [backendData, setBackendData] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('ca1');
   const [cartIsShown, setCartIsShown] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-
+  // const [isLoading, setIsLoading] = useState(false);
+  const [status, setStatus] = useState('init');
+  
   const fetchData = async () => {
-    setIsLoading(true);
+    setStatus('loading');
+
     try {
     const response = await fetch('https://greek-yogurt-order-app-17351-default-rtdb.firebaseio.com/data.json');
     const data = await response.json();
     // setIsLoading을 같은 핸들러에서 써도 되는 이유: await로 시간차가 생기기 때문에
-    setIsLoading(false);
+    
+    setStatus('loaded');
     setBackendData(data);
     } catch(error) {
       console.log('error: ', error)
@@ -37,9 +40,9 @@ function App() {
     setCartIsShown(false);
   }
 
-  if (isLoading) {
+  if (status === 'loading' || status === 'init') {
     return <div>Loading...</div>
-  } else if (backendData.length > 0) {
+  } else if (status === 'loaded') {
     return (
       <CartProvider>
         {cartIsShown && 
