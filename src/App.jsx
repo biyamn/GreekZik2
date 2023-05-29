@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Header from './components/Layout/Header';
 import Toppings from './components/Toppings/Toppings';
 import CartProvider from './store/CartProvider';
+import Yogurt from './components/Yogurt/Yogurt';
 import './App.css';
 
 function App() {
@@ -49,11 +50,11 @@ function App() {
           <Cart hideCartHandler={hideCartHandler} />}
         <Header showCartHandler={showCartHandler} />
         <main>
-          <Toppings 
+          <Yogurt 
             backendData={backendData} 
             setBackendData={setBackendData} 
             selectedCategory={selectedCategory}  
-            setSelectedCategory={setSelectedCategory} 
+            setSelectedCategory={setSelectedCategory}
           />
         </main>
       </CartProvider>
