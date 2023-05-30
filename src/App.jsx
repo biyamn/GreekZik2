@@ -1,4 +1,4 @@
-import Cart from './components/Cart/Cart';
+import Cart from './components/Cart/CartModal';
 import React, { useState, useEffect } from 'react';
 import Header from './components/Layout/Header';
 import Toppings from './components/Toppings/Toppings';
