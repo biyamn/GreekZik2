@@ -4,7 +4,7 @@ import CartItem from './CartItem';
 import classes from './CartModal.module.css';
 import CartContext from '../../store/cartContext'; 
 
-const CartModal = ({ hideCartHandler }) => {
+const Cart = ({ hideCartHandler }) => {
   const { items, totalPrice } = useContext(CartContext);
 
   const cartItem = (
@@ -45,4 +45,4 @@ const CartModal = ({ hideCartHandler }) => {
   );
 };
 
-export default CartModal;
+export default Cart;

@@ -1,4 +1,4 @@
-import CartModal from './components/Cart/CartModal';
+import Cart from './components/Cart/CartModal';
 import React, { useState, useEffect } from 'react';
 import Header from './components/Layout/Header';
 import Toppings from './components/Toppings/Toppings';
@@ -8,7 +8,7 @@ import './App.css';
 
 function App() {
   const [backendData, setBackendData] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState('ca2');
+  const [selectedCategory, setSelectedCategory] = useState('ca1');
   const [cartIsShown, setCartIsShown] = useState(false);
   // const [isLoading, setIsLoading] = useState(false);
   const [status, setStatus] = useState('init');
@@ -47,7 +47,7 @@ function App() {
     return (
       <CartProvider>
         {cartIsShown && 
-          <CartModal hideCartHandler={hideCartHandler} />}
+          <Cart hideCartHandler={hideCartHandler} />}
         <Header showCartHandler={showCartHandler} />
         <main>
           <Yogurt 

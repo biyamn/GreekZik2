@@ -4,14 +4,8 @@ import classes from './AvailableToppings.module.css';
 
 const AvailableToppings = props => {
   const {backendData, selectedCategory} = props
-  console.log('selectedCategory: ', selectedCategory)
-  console.log('backendData[1].toppingData: ', backendData[1].toppingData)
-  const filteredCategory = Object.values(backendData[1].toppingData).filter(category => {
-    console.log('category: ', category)
-    console.log('category.id: ', category.id)
-    if (category.id === selectedCategory) {
-      console.log('카테고리 ID 일치')
-    }
+
+  const filteredCategory = backendData.filter(category => {
     return category.id === selectedCategory
   })
   console.log('filteredCategory: ', filteredCategory)

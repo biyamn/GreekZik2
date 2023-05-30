@@ -6,7 +6,7 @@ const Yogurt = ({ backendData, setBackendData, selectedCategory, setSelectedCate
   // console.log('왜')
   const [selectedYogurt, setSelectedYogurt] = useState(null);
   const handleYogurtClick = () => {
-    setSelectedYogurt(true);
+    return <p>clicked</p>
   }
 
   return (
@@ -20,13 +20,13 @@ const Yogurt = ({ backendData, setBackendData, selectedCategory, setSelectedCate
         )})
       }
     </ul>
-    {selectedYogurt && <YogurtModal 
+    {selectedYogurt && <YogurtModal selectedYogurt={selectedYogurt} />}
+    {/* <Toppings 
       backendData={backendData} 
       setBackendData={setBackendData} 
       selectedCategory={selectedCategory}  
       setSelectedCategory={setSelectedCategory} 
-      selectedYogurt={selectedYogurt} 
-    />}
+    /> */}
     </>
     
   );
