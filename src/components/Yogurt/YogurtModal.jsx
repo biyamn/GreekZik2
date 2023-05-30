@@ -6,12 +6,12 @@ const YogurtModal = ({ selectedYogurt, backendData, setBackendData, selectedCate
   return (
     <div>
       <Modal selectedYogurt={selectedYogurt}>
-        <Toppings 
-          backendData={backendData} 
-          setBackendData={setBackendData} 
-          selectedCategory={selectedCategory}  
-          setSelectedCategory={setSelectedCategory} 
-        />
+      <Toppings 
+        backendData={backendData} 
+        setBackendData={setBackendData} 
+        selectedCategory={selectedCategory}  
+        setSelectedCategory={setSelectedCategory} 
+      />
       </Modal>
     </div>
   );

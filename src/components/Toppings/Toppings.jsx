@@ -1,4 +1,5 @@
 import React from 'react';
+import ToppingsSummary from './ToppingsSummary';
 import AvailableToppings from './AvailableToppings';
 import ToppingsCategory from './ToppingsCategory';
 import Card from './../UI/Card';
@@ -27,6 +28,7 @@ const Toppings = ({ backendData, setBackendData, setSelectedCategory, selectedCa
 
   return (
     <div className={classes.toppings}>
+      <ToppingsSummary />
       <Card>
         <div className={classes.container}>
           <div className={classes.ulContainer}>
