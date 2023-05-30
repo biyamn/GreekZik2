@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import Modal from '../UI/Modal';
 import CartItem from './CartItem';
-import classes from './Cart.module.css';
+import classes from './CartModal.module.css';
 import CartContext from '../../store/cartContext'; 
 
 const Cart = ({ hideCartHandler }) => {
