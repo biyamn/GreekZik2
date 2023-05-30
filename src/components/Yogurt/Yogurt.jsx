@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Toppings from '../Toppings/Toppings';
 import YogurtModal from './YogurtModal';
-
+import ToppingsSummary from '../Toppings/ToppingsSummary';
 const Yogurt = ({ backendData, setBackendData, selectedCategory, setSelectedCategory }) => {
   // console.log('왜')
   const [selectedYogurt, setSelectedYogurt] = useState(null);
@@ -11,6 +11,7 @@ const Yogurt = ({ backendData, setBackendData, selectedCategory, setSelectedCate
 
   return (
     <>
+    <ToppingsSummary />
     <ul>
       {backendData[0].yogurtData[0].DUMMY_TOPPINGS.map((yogurt) => {
         return (

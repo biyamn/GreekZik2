@@ -6,16 +6,20 @@ const ToppingsCategory = ({onSelect, backendData}) => {
   const selectHandler = (id) => {
     onSelect(id);
   }
-
+  console.log('backendData[1].toppingData: ', backendData[1].toppingData)
   return (
-    backendData.map(category => 
-      <li
-        key={category.id}
-        onClick={() => selectHandler(category.id)}
-        className={classes.category}
-      >
-        {category.name}
-      </li>
+    // backendData[1].toppingData[0].map(category => 
+    //   <li
+    //     key={category.id}
+    //     onClick={() => selectHandler(category.id)}
+    //     className={classes.category}
+    //   >
+    //     {category.name}
+    //   </li>
+    // )
+    // [1, 2, 3].map(category => <p>{category}</p>)
+    backendData[1].toppingData.map(category => 
+      <p>{category.name}</p>
     )
   );
 };
