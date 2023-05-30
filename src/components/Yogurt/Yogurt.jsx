@@ -1,26 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Toppings from '../Toppings/Toppings';
-import YogurtModal from './YogurtModal';
 
 const Yogurt = ({ backendData, setBackendData, selectedCategory, setSelectedCategory }) => {
   // console.log('왜')
-  const [selectedYogurt, setSelectedYogurt] = useState(null);
-  const handleYogurtClick = () => {
-    return <p>clicked</p>
-  }
+  console.log('backendData[0].yogurtData[0].DUMMY_TOPPINGS: ', backendData[0].yogurtData[0].DUMMY_TOPPINGS)
+  const yogurts = backendData[0].yogurtData[0].DUMMY_TOPPINGS.map(yogurt =>
+    <p>{yogurt.name}</p>
+  )
 
   return (
     <>
-    <ul>
-      {backendData[0].yogurtData[0].DUMMY_TOPPINGS.map((yogurt) => {
-        return (
-          <li key={yogurt.id} onClick={() => handleYogurtClick(yogurt)}>
-            {yogurt.name}
-          </li>
-        )})
-      }
-    </ul>
-    {selectedYogurt && <YogurtModal selectedYogurt={selectedYogurt} />}
+    {yogurts}
     {/* <Toppings 
       backendData={backendData} 
       setBackendData={setBackendData} 
