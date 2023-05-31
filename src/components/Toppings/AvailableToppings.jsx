@@ -17,7 +17,6 @@ const AvailableToppings = props => {
   console.log('filteredCategory: ', filteredCategory)
   const toppingsList = filteredCategory[0].DUMMY_TOPPINGS.map(topping => 
     <ToppingItem
-      key={topping.id}
       id={topping.id}       
       name={topping.name}
       description={topping.description}
