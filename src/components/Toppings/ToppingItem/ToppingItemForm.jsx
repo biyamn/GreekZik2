@@ -25,7 +25,6 @@ const ToppingItemForm = ({ topping, onSaveCategories, id }) => {
       // typeof(newState.amount) -> string
       amount: Number(e.target.value),
       };
-      console.log('newState: ', newState)
       onSaveCategories(newState);
       return newState
     })

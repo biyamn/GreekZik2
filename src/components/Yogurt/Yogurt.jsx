@@ -8,6 +8,7 @@ const Yogurt = ({ backendData, setBackendData, selectedCategory, setSelectedCate
   const handleYogurtClick = () => {
     setSelectedYogurt(true);
   }
+
   return (
     <>
     <ToppingsSummary />
