@@ -2,7 +2,7 @@ import React from 'react';
 import Modal from '../UI/Modal';
 import Toppings from '../Toppings/Toppings';
 
-const YogurtModal = ({ selectedYogurt, backendData, setBackendData, selectedCategory, setSelectedCategory, hideToppingModalHandler }) => {
+const YogurtModal = ({ selectedYogurt, backendData, setBackendData, selectedCategory, setSelectedCategory }) => {
   const onSelect = (id) => {
     setSelectedCategory(id);
   }
@@ -26,7 +26,7 @@ const YogurtModal = ({ selectedYogurt, backendData, setBackendData, selectedCate
   
   return (
     <div>
-      <Modal selectedYogurt={selectedYogurt} hideCartHandler={hideToppingModalHandler}>
+      <Modal selectedYogurt={selectedYogurt}>
         <Toppings 
           backendData={backendData} 
           setBackendData={setBackendData} 
@@ -35,7 +35,6 @@ const YogurtModal = ({ selectedYogurt, backendData, setBackendData, selectedCate
           onSaveCategories={onSaveCategories}
           onSelect={onSelect}
         />
-        <button onClick={hideToppingModalHandler}>닫기</button>
       </Modal>
     </div>
   );

@@ -12,8 +12,7 @@ function App() {
   const [cartIsShown, setCartIsShown] = useState(false);
   // const [isLoading, setIsLoading] = useState(false);
   const [status, setStatus] = useState('init');
-  const [toppingModalIsShown, setToppingModalIsShown] = useState(false);
-
+  
   const fetchData = async () => {
     setStatus('loading');
 
@@ -42,15 +41,6 @@ function App() {
     setCartIsShown(false);
   }
 
-  const showToppingModalHandler = () => {
-    setToppingModalIsShown(true);
-  }
-
-  const hideToppingModalHandler = () => {
-    setToppingModalIsShown(false);
-  }
-
-
   if (status === 'loading' || status === 'init') {
     return <div>Loading...</div>
   } else if (status === 'loaded') {
@@ -61,10 +51,6 @@ function App() {
         <Header showCartHandler={showCartHandler} />
         <main>
           <Yogurt 
-            toppingModalIsShown={toppingModalIsShown}
-            showToppingModalHandler={showToppingModalHandler}
-            hideToppingModalHandler={hideToppingModalHandler} 
-            cartIsShown={cartIsShown}
             backendData={backendData} 
             setBackendData={setBackendData} 
             selectedCategory={selectedCategory}  
