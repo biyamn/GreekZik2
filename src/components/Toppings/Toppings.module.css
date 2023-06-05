@@ -1,7 +1,8 @@
 .toppings {
   /* 와 이거였음 이 두개를 해야 모달(position:fixed) 안에서 스크롤이 됨 */
   overflow: auto;
-  max-height: 80vh;
+  max-height: 70vh;
+  margin-top: 2rem;
 }
 
 .container {
@@ -16,6 +17,7 @@
 }
 
 .liContainer {
+  position: fixed;
   padding-left: 0;
   display: flex;
   align-items: center;
@@ -23,7 +25,6 @@
   font-size: 1.4rem;
   max-width: 70rem;
   width: 90%;
-  margin-bottom: 0;
-  padding-bottom: 1.5rem;
   border-bottom: 1px solid #ccc;
+  z-index: 100;
 }
