@@ -1,5 +1,7 @@
 .toppings {
-  margin-top: 10rem;
+  /* 와 이거였음 이 두개를 해야 모달(position:fixed) 안에서 스크롤이 됨 */
+  overflow: auto;
+  max-height: 80vh;
 }
 
 .container {

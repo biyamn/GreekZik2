@@ -9,7 +9,6 @@ const Toppings = ({ onSelect, onSaveCategories, backendData, selectedCategory })
 
   return (
     <div className={classes.toppings}>
-      <Card>
         <div className={classes.container}>
           <div className={classes.ulContainer}>
             <ul className={classes.liContainer}>
@@ -25,7 +24,6 @@ const Toppings = ({ onSelect, onSaveCategories, backendData, selectedCategory })
             backendData={backendData}
           />
         </div>
-      </Card>
     </div>
     );
   }
