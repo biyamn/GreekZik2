@@ -1,5 +1,4 @@
 .toppings {
-  top: 20vh;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
