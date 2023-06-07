@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import Input from '../../UI/Input';
 import classes from './ToppingItemForm.module.css';
 import CartContext from '../../../store/cartContext';
-const ToppingItemForm = ({ topping, onSaveCategories, id }) => {
+const ToppingItemForm = ({ topping, onSaveCategories }) => {
   const { onSave } = useContext(CartContext);
 
   const [itemState, setItemState] = useState({
@@ -10,7 +10,14 @@ const ToppingItemForm = ({ topping, onSaveCategories, id }) => {
     name: topping.name,
     description: topping.description,
     price: topping.price,
-    amount: topping.amount
+    amount: topping.amount,
+    toppings: {
+      id: topping.id,
+      name: topping.name,
+      description: topping.description,
+      price: topping.price,
+      amount: topping.amount
+    }
   });
 
   const submitHandler = (e) => {
@@ -32,12 +39,12 @@ const ToppingItemForm = ({ topping, onSaveCategories, id }) => {
   }
 
   return (
-    <form className={classes.form} onSubmit={submitHandler} key={id} >
+    <form className={classes.form} onSubmit={submitHandler} key={topping.id} >
       <Input 
         onChange={onChangeHandler}
         label="수량" 
         input={{
-          id: id,
+          id: topping.id,
           type: 'number',
           min: '1',
           max: '10',

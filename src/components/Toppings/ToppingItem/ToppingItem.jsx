@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ToppingItemForm from './ToppingItemForm';
 import classes from './ToppingItem.module.css';
 import yogurtImage from '../../../assets/yogurt.jpg';
-const ToppingItem = ({ price, name, description, id, amount, topping, backendData, onSaveItem, onSaveCategories}) => {
+const ToppingItem = ({ topping, backendData, onSaveItem, onSaveCategories}) => {
   const [isHovered, setIsHovered] = useState(false);
   
   const handleMouseEnter = () => {
@@ -13,21 +13,19 @@ const ToppingItem = ({ price, name, description, id, amount, topping, backendDat
     setIsHovered(false);
   };
 
-  const commaSeparatedPrice = price.toLocaleString(3);
+  const commaSeparatedPrice = topping.price.toLocaleString(3);
 
   return (
     <li 
       className={classes.container} 
-      key={id}
+      key={topping.id}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <h3 className={classes.name}>{name}</h3>
-      <div className={classes.description}>{description}</div>
+      <h3 className={classes.name}>{topping.name}</h3>
+      <div className={classes.description}>{topping.description}</div>
       <div className={classes.form}>
         <ToppingItemForm
-          id={id}  
-          amount={amount} 
           onSaveItem={onSaveItem} 
           topping={topping}
           backendData={backendData}
