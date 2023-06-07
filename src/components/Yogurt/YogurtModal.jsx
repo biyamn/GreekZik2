@@ -1,8 +1,9 @@
 import React from 'react';
 import Modal from '../UI/Modal';
 import Toppings from '../Toppings/Toppings';
+import HeaderCartButton from '../Layout/HeaderCartButton';
 
-const YogurtModal = ({ selectedYogurt, backendData, setBackendData, selectedCategory, setSelectedCategory, hideToppingModalHandler }) => {
+const YogurtModal = ({ showCartHandler, selectedYogurt, backendData, setBackendData, selectedCategory, setSelectedCategory, hideToppingModalHandler }) => {
   const onSelect = (id) => {
     setSelectedCategory(id);
   }
@@ -27,6 +28,8 @@ const YogurtModal = ({ selectedYogurt, backendData, setBackendData, selectedCate
   return (
     <div>
       <Modal selectedYogurt={selectedYogurt} hideCartHandler={hideToppingModalHandler}>
+        <h1>토핑 내마음대로 담기!</h1>
+        <HeaderCartButton onClick={showCartHandler}/>
         <Toppings 
           backendData={backendData} 
           setBackendData={setBackendData} 

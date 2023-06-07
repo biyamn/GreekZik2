@@ -61,6 +61,7 @@ function App() {
         <Header showCartHandler={showCartHandler} />
         <main>
           <Yogurt 
+            showCartHandler={showCartHandler}
             toppingModalIsShown={toppingModalIsShown}
             showToppingModalHandler={showToppingModalHandler}
             hideToppingModalHandler={hideToppingModalHandler} 
