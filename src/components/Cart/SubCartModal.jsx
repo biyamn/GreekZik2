@@ -4,13 +4,13 @@ import SubCartItem from './SubCartItem';
 import classes from './SubCartModal.module.css';
 import CartContext from '../../store/cartContext'; 
 
-const SubCartModal = ({ hideSubCartHandler }) => {
+const SubCartModal = ({ hideCartHandler }) => {
   const { items, totalPrice } = useContext(CartContext);
 
   const cartItem = (
     <ul className={classes['cart-items']}>
       {items.map(item => 
-        <SubCartItem 
+        <PartialCartItem 
           key={item.id} 
           id={item.id}
           name={item.name} 
@@ -24,7 +24,7 @@ const SubCartModal = ({ hideSubCartHandler }) => {
   const commaSeparatedTotalPrice = totalPrice.toLocaleString(3);
 
   return (
-    <Modal hideHandler={hideSubCartHandler}>
+    <Modal hideCartHandler={hideCartHandler}>
       <div>
         {cartItem}
       </div>
@@ -35,7 +35,7 @@ const SubCartModal = ({ hideSubCartHandler }) => {
       <div className={classes.actions}>
         <button 
           className={classes['button--alt']} 
-          onClick={hideSubCartHandler}
+          onClick={hideCartHandler}
         >
           닫기
         </button>

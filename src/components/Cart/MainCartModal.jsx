@@ -4,7 +4,7 @@ import MainCartItem from './MainCartItem';
 import classes from './MainCartModal.module.css';
 import CartContext from '../../store/cartContext'; 
 
-const MainCartModal = ({ hideMainCartHandler }) => {
+const MainCartModal = ({ hideCartHandler }) => {
   const { items, totalPrice } = useContext(CartContext);
   const [fullItems, setFullItems] = useState([]);
   const merged = items.filter(item => item.id === '');
@@ -27,7 +27,7 @@ const MainCartModal = ({ hideMainCartHandler }) => {
   const commaSeparatedTotalPrice = totalPrice.toLocaleString(3);
 
   return (
-    <Modal hideHandler={hideMainCartHandler}>
+    <Modal hideCartHandler={hideCartHandler}>
       <div>
         {cartItem}
       </div>
@@ -38,7 +38,7 @@ const MainCartModal = ({ hideMainCartHandler }) => {
       <div className={classes.actions}>
         <button 
           className={classes['button--alt']} 
-          onClick={hideMainCartHandler}
+          onClick={hideCartHandler}
         >
           닫기
         </button>

@@ -2,8 +2,7 @@ import MainCartModal from './components/Cart/MainCartModal';
 import React, { useState, useEffect } from 'react';
 import MainHeader from './components/Layout/MainHeader';
 import CartProvider from './store/CartProvider';
-import Select from './components/Select/Select';
-import SubCartModal from './components/Cart/SubCartModal';
+import Yogurt from './components/Yogurt/Yogurt';
 import './App.css';
 
 function App() {
@@ -31,7 +30,7 @@ function App() {
   }
 
   useEffect(() => {
-    // console.log('useEffect 시작')
+    console.log('useEffect 시작')
     fetchData();
   }, [])
   
@@ -65,15 +64,18 @@ function App() {
   } else if (status === 'loaded') {
     return (
       <CartProvider>
-        {mainCartIsShown &&<MainCartModal hideMainCartHandler={hideMainCartHandler} />}
-        <MainHeader showMainCartHandler={showMainCartHandler} />
+        {mainCartIsShown && 
+          <MainCartModal hideCartHandler={hideMainCartHandler} />}
+        <MainHeader showCartHandler={showMainCartHandler} />
         <main>
-        {subCartIsShown &&<SubCartModal hideSubCartHandler={hideSubCartHandler} />}
-          <Select
+          <Yogurt 
+            cartIsShown={subCartIsShown}
+
             selectModalIsShown={selectModalIsShown}
-            showSelectModalHandler={showSelectModalHandler}
-            hideSelectModalHandler={hideSelectModalHandler} 
-            showSubCartHandler={showSubCartHandler}
+            showModalHandler={showSelectModalHandler}
+            hideModalHandler={hideSelectModalHandler} 
+            
+            
             backendData={backendData} 
             setBackendData={setBackendData} 
             selectedCategory={selectedCategory}  
