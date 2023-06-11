@@ -6,7 +6,7 @@ const ToppingsCategory = ({onSelect, backendData}) => {
   const selectHandler = (id) => {
     onSelect(id);
   }
-  console.log('backendData[1].toppingData: ', backendData[1].toppingData)
+  // console.log('backendData[1].toppingData: ', backendData[1].toppingData)
   return (
     backendData[1].toppingData.map(category => 
       <li

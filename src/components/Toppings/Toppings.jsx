@@ -5,7 +5,7 @@ import Card from './../UI/Card';
 import classes from './Toppings.module.css';
 
 const Toppings = ({ onSelect, onSaveCategories, backendData, selectedCategory }) => {
-  console.log('backendData: ', backendData)
+  // console.log('backendData: ', backendData)
 
   return (
     <div className={classes.toppings}>
