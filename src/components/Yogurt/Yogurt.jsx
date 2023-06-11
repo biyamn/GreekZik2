@@ -5,13 +5,13 @@ import ToppingsSummary from '../Toppings/ToppingsSummary';
 import CartContext from '../../store/cartContext';
 import { useContext } from 'react';
 
-const Yogurt = ({ showModalHandler, cartIsShown, backendData, setBackendData, selectedCategory, setSelectedCategory, hideCartHandler }) => {
+const Yogurt = ({ showCartHandler, toppingModalIsShown, showToppingModalHandler, backendData, setBackendData, selectedCategory, setSelectedCategory, hideToppingModalHandler }) => {
   // console.log('왜')
   const { onSave } = useContext(CartContext);
 
   const handleClickYogurt = selectedItemData => {
     onSave(selectedItemData);
-    showModalHandler();
+    showToppingModalHandler();
   }
 
   return (
@@ -28,9 +28,9 @@ const Yogurt = ({ showModalHandler, cartIsShown, backendData, setBackendData, se
         )})
       }
     </ul>
-    {cartIsShown && <YogurtModal 
-      showModalHandler={showModalHandler}
-      hideModalHandler={hideModalHandler}
+    {toppingModalIsShown && <YogurtModal 
+      showCartHandler={showCartHandler}
+      hideToppingModalHandler={hideToppingModalHandler}
       backendData={backendData} 
       setBackendData={setBackendData} 
       selectedCategory={selectedCategory}  

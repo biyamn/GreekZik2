@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import Modal from '../UI/Modal';
-import SubCartItem from './SubCartItem';
-import classes from './SubCartModal.module.css';
+import PartialCartItem from './PartialCartItem';
+import classes from './PartialCartModal.module.css';
 import CartContext from '../../store/cartContext'; 
 
-const SubCartModal = ({ hideCartHandler }) => {
+const PartialCartModal = ({ hideCartHandler }) => {
   const { items, totalPrice } = useContext(CartContext);
 
   const cartItem = (
@@ -45,4 +45,4 @@ const SubCartModal = ({ hideCartHandler }) => {
   );
 };
 
-export default SubCartModal;
+export default PartialCartModal;

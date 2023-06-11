@@ -1,9 +1,9 @@
 import React from 'react';
 import Modal from '../UI/Modal';
 import Toppings from '../Toppings/Toppings';
-import SubHeaderCartButton from '../Layout/SubHeaderCartButton';
+import HeaderCartButton from '../Layout/HeaderCartButton';
 
-const YogurtModal = ({ showCartHandler, selectedYogurt, backendData, setBackendData, selectedCategory, setSelectedCategory, hideCartHandler }) => {
+const YogurtModal = ({ showCartHandler, selectedYogurt, backendData, setBackendData, selectedCategory, setSelectedCategory, hideToppingModalHandler }) => {
   const onSelect = (id) => {
     setSelectedCategory(id);
   }
@@ -27,9 +27,9 @@ const YogurtModal = ({ showCartHandler, selectedYogurt, backendData, setBackendD
   
   return (
     <div>
-      <Modal selectedYogurt={selectedYogurt} hideCartHandler={hideCartHandler}>
+      <Modal selectedYogurt={selectedYogurt} hideCartHandler={hideToppingModalHandler}>
         <h1>토핑 내마음대로 담기!</h1>
-        <SubHeaderCartButton onClick={showCartHandler}/>
+        <HeaderCartButton onClick={showCartHandler}/>
         <Toppings 
           backendData={backendData} 
           setBackendData={setBackendData} 
@@ -38,7 +38,7 @@ const YogurtModal = ({ showCartHandler, selectedYogurt, backendData, setBackendD
           onSaveCategories={onSaveCategories}
           onSelect={onSelect}
         />
-        <button onClick={hideCartHandler}>닫기</button>
+        <button onClick={hideToppingModalHandler}>닫기</button>
       </Modal>
     </div>
   );

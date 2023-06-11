@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';  
-import classes from './SubCartItem.module.css';
+import classes from './PartialCartItem.module.css';
 import CartContext from '../../store/cartContext';
 
-const MainCartItem = ({ price, name, amount, id }) => {
+const FullCartItem = ({ price, name, amount, id }) => {
   const { onRemove, onAdd } = useContext(CartContext);
 
   return (
@@ -22,4 +22,4 @@ const MainCartItem = ({ price, name, amount, id }) => {
   );
 };
 
-export default MainCartItem;
+export default FullCartItem;
