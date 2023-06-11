@@ -1,16 +1,16 @@
 import React, { useContext } from 'react';
 import Modal from '../UI/Modal';
-import PartialCartItem from './PartialCartItem';
-import classes from './PartialCartModal.module.css';
+import CartItem from './CartItem';
+import classes from './CartModal.module.css';
 import CartContext from '../../store/cartContext'; 
 
-const PartialCartModal = ({ hideCartHandler }) => {
+const CartModal = ({ hideCartHandler }) => {
   const { items, totalPrice } = useContext(CartContext);
 
   const cartItem = (
     <ul className={classes['cart-items']}>
       {items.map(item => 
-        <PartialCartItem 
+        <CartItem 
           key={item.id} 
           id={item.id}
           name={item.name} 
@@ -45,4 +45,4 @@ const PartialCartModal = ({ hideCartHandler }) => {
   );
 };
 
-export default PartialCartModal;
+export default CartModal;
