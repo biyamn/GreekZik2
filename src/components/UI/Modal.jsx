@@ -14,10 +14,10 @@ const Overlay = ({ children }) => {
   );
 }
 
-const Modal = ({ children, hideCartHandler }) => {
+const Modal = ({ children, hideHandler }) => {
   return (
     <>
-      {ReactDOM.createPortal(<Backdrop onClick={hideCartHandler} />, document.getElementById("backdrop-root"))}
+      {ReactDOM.createPortal(<Backdrop onClick={hideHandler} />, document.getElementById("backdrop-root"))}
       {ReactDOM.createPortal(<Overlay>{children}</Overlay>, document.getElementById("overlay-root"))}
     </>
   );

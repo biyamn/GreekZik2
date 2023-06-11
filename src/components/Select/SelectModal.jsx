@@ -3,7 +3,7 @@ import Modal from '../UI/Modal';
 import Toppings from '../Toppings/Toppings';
 import SubHeaderCartButton from '../Layout/SubHeaderCartButton';
 
-const YogurtModal = ({ showCartHandler, selectedYogurt, backendData, setBackendData, selectedCategory, setSelectedCategory, hideCartHandler }) => {
+const SelectModal = ({ showSubCartHandler, selectedYogurt, backendData, setBackendData, selectedCategory, setSelectedCategory, hideSelectModalHandler, hideCartHandler }) => {
   const onSelect = (id) => {
     setSelectedCategory(id);
   }
@@ -27,9 +27,9 @@ const YogurtModal = ({ showCartHandler, selectedYogurt, backendData, setBackendD
   
   return (
     <div>
-      <Modal selectedYogurt={selectedYogurt} hideCartHandler={hideCartHandler}>
+      <Modal selectedYogurt={selectedYogurt} hideHandler={hideSelectModalHandler}>
         <h1>토핑 내마음대로 담기!</h1>
-        <SubHeaderCartButton onClick={showCartHandler}/>
+        <SubHeaderCartButton onClick={showSubCartHandler}/>
         <Toppings 
           backendData={backendData} 
           setBackendData={setBackendData} 
@@ -38,10 +38,10 @@ const YogurtModal = ({ showCartHandler, selectedYogurt, backendData, setBackendD
           onSaveCategories={onSaveCategories}
           onSelect={onSelect}
         />
-        <button onClick={hideCartHandler}>닫기</button>
+        <button onClick={hideSelectModalHandler}>닫기</button>
       </Modal>
     </div>
   );
 };
 
-export default YogurtModal;
+export default SelectModal;
