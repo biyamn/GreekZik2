@@ -1,7 +1,6 @@
-import PartialCartModal from './components/Cart/PartialCartModal';
+import MainCartModal from './components/Cart/MainCartModal';
 import React, { useState, useEffect } from 'react';
-import Header from './components/Layout/Header';
-import Toppings from './components/Toppings/Toppings';
+import MainHeader from './components/Layout/MainHeader';
 import CartProvider from './store/CartProvider';
 import Yogurt from './components/Yogurt/Yogurt';
 import './App.css';
@@ -9,10 +8,11 @@ import './App.css';
 function App() {
   const [backendData, setBackendData] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('ca2');
-  const [cartIsShown, setCartIsShown] = useState(false);
+  const [mainCartIsShown, setMainCartIsShown] = useState(false);
+  const [subCartIsShown, setSubCartIsShown] = useState(false);
   // const [isLoading, setIsLoading] = useState(false);
   const [status, setStatus] = useState('init');
-  const [toppingModalIsShown, setToppingModalIsShown] = useState(false);
+  const [selectModalIsShown, setSelectModalIsShown] = useState(false);
 
   const fetchData = async () => {
     setStatus('loading');
@@ -34,20 +34,28 @@ function App() {
     fetchData();
   }, [])
   
-  const showCartHandler = () => {
-    setCartIsShown(true);
+  const showMainCartHandler = () => {
+    setMainCartIsShown(true);
   }
 
-  const hideCartHandler = () => {
-    setCartIsShown(false);
+  const hideMainCartHandler = () => {
+    setMainCartIsShown(false);
   }
 
-  const showToppingModalHandler = () => {
-    setToppingModalIsShown(true);
+  const showSubCartHandler = () => {
+    setSubCartIsShown(true);
   }
 
-  const hideToppingModalHandler = () => {
-    setToppingModalIsShown(false);
+  const hideSubCartHandler = () => {
+    setSubCartIsShown(false);
+  }
+
+  const showSelectModalHandler = () => {
+    setSelectModalIsShown(true);
+  }
+
+  const hideSelectModalHandler = () => {
+    setSelectModalIsShown(false);
   }
 
 
@@ -56,16 +64,18 @@ function App() {
   } else if (status === 'loaded') {
     return (
       <CartProvider>
-        {cartIsShown && 
-          <PartialCartModal hideCartHandler={hideCartHandler} />}
-        <Header showCartHandler={showCartHandler} />
+        {mainCartIsShown && 
+          <MainCartModal hideCartHandler={hideMainCartHandler} />}
+        <MainHeader showCartHandler={showMainCartHandler} />
         <main>
           <Yogurt 
-            showCartHandler={showCartHandler}
-            toppingModalIsShown={toppingModalIsShown}
-            showToppingModalHandler={showToppingModalHandler}
-            hideToppingModalHandler={hideToppingModalHandler} 
-            cartIsShown={cartIsShown}
+            cartIsShown={subCartIsShown}
+
+            selectModalIsShown={selectModalIsShown}
+            showModalHandler={showSelectModalHandler}
+            hideModalHandler={hideSelectModalHandler} 
+            
+            
             backendData={backendData} 
             setBackendData={setBackendData} 
             selectedCategory={selectedCategory}  

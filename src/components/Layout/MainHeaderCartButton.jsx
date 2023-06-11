@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
 import CartIcon from '../Cart/CartIcon';
-import classes from './HeaderCartButton.module.css';
+import classes from './MainHeaderCartButton.module.css';
 import CartContext from '../../store/cartContext';
-const HeaderCartButton = ({ onClick }) => {
-  const { items} = useContext(CartContext);
+
+const FullHeaderCartButton = ({ onClick }) => {
+  const {items} = useContext(CartContext);
   
   const numberOfCartItems = items.reduce((curNumber, item) => {
     return curNumber + item.amount;
@@ -14,10 +15,10 @@ const HeaderCartButton = ({ onClick }) => {
       <span className={classes.icon}>
         <CartIcon />
       </span>
-      <span>담은 재료 보기</span>
+      <span>장바구니</span>
       <span className={classes.badge}>{numberOfCartItems}</span>
     </button>
   );
 };
 
-export default HeaderCartButton;
+export default FullHeaderCartButton;

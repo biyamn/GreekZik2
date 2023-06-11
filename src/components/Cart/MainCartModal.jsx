@@ -1,10 +1,10 @@
 import React, { useContext, useState } from 'react';
 import Modal from '../UI/Modal';
-import FullCartItem from './FullCartItem';
-import classes from './FullCartModal.module.css';
+import MainCartItem from './MainCartItem';
+import classes from './MainCartModal.module.css';
 import CartContext from '../../store/cartContext'; 
 
-const FullCartModal = ({ hideCartHandler }) => {
+const MainCartModal = ({ hideCartHandler }) => {
   const { items, totalPrice } = useContext(CartContext);
   const [fullItems, setFullItems] = useState([]);
   const merged = items.filter(item => item.id === '');
@@ -13,7 +13,7 @@ const FullCartModal = ({ hideCartHandler }) => {
   const cartItem = (
     <ul className={classes['cart-items']}>
       {items.map(item => 
-        <PartialCartItem 
+        <MainCartItem 
           key={item.id} 
           id={item.id}
           name={item.name} 
@@ -48,4 +48,4 @@ const FullCartModal = ({ hideCartHandler }) => {
   );
 };
 
-export default FullCartModal;
+export default MainCartModal;
