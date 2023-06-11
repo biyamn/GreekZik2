@@ -1,4 +1,4 @@
-import CartModal from './components/Cart/CartModal';
+import PartialCartModal from './components/Cart/PartialCartModal';
 import React, { useState, useEffect } from 'react';
 import Header from './components/Layout/Header';
 import Toppings from './components/Toppings/Toppings';
@@ -57,7 +57,7 @@ function App() {
     return (
       <CartProvider>
         {cartIsShown && 
-          <CartModal hideCartHandler={hideCartHandler} />}
+          <PartialCartModal hideCartHandler={hideCartHandler} />}
         <Header showCartHandler={showCartHandler} />
         <main>
           <Yogurt 

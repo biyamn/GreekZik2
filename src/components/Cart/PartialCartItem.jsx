@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';  
-import classes from './CartItem.module.css';
+import classes from './PartialCartItem.module.css';
 import CartContext from '../../store/cartContext';
 
-const CartItem = ({ price, name, amount, id }) => {
+const PartialCartItem = ({ price, name, amount, id }) => {
   const { onRemove, onAdd } = useContext(CartContext);
 
   return (
@@ -22,4 +22,4 @@ const CartItem = ({ price, name, amount, id }) => {
   );
 };
 
-export default CartItem;
+export default PartialCartItem;
