@@ -39,7 +39,7 @@ const SubCartModal = ({ hideSubCartHandler }) => {
         >
           닫기
         </button>
-        <button className={classes.button}>주문</button>
+        {/* <button className={classes.button}>주문</button> */}
       </div>
     </Modal>
   );

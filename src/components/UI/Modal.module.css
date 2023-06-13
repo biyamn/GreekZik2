@@ -10,9 +10,10 @@
 
 .modal {
   position: fixed;
+  width: 80%;
+  height: 80%;
   top: 10vh;
   left: 5%;
-  width: 100%;
   background-color: white;
   padding: 1rem;
   border-radius: 14px;
@@ -21,10 +22,10 @@
   animation: slide-down 300ms ease-out forwards;
 }
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
   .modal {
     width: 80rem;
-    /* left: calc(50% - 20rem); */
+    /* left: calc(50% - 20rem); 
   }
 }
 
@@ -37,4 +38,4 @@
     opacity: 1;
     transform: translateY(0);
   }
-}
+} */
