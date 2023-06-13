@@ -3,7 +3,7 @@ import CartIcon from '../Cart/CartIcon';
 import classes from './MainHeaderCartButton.module.css';
 import CartContext from '../../store/cartContext';
 
-const MainHeaderCartButton = ({ onClick }) => {
+const FullHeaderCartButton = ({ onClick }) => {
   const {items} = useContext(CartContext);
   
   const numberOfCartItems = items.reduce((curNumber, item) => {
@@ -21,4 +21,4 @@ const MainHeaderCartButton = ({ onClick }) => {
   );
 };
 
-export default MainHeaderCartButton;
+export default FullHeaderCartButton;

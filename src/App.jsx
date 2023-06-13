@@ -2,7 +2,7 @@ import MainCartModal from './components/Cart/MainCartModal';
 import React, { useState, useEffect } from 'react';
 import MainHeader from './components/Layout/MainHeader';
 import CartProvider from './store/CartProvider';
-import SelectTopping from './components/SelectTopping/SelectTopping';
+import Select from './components/Select/Select';
 import SubCartModal from './components/Cart/SubCartModal';
 import './App.css';
 
@@ -69,7 +69,7 @@ function App() {
         <MainHeader showMainCartHandler={showMainCartHandler} />
         <main>
         {subCartIsShown &&<SubCartModal hideSubCartHandler={hideSubCartHandler} />}
-          <SelectTopping
+          <Select
             selectModalIsShown={selectModalIsShown}
             showSelectModalHandler={showSelectModalHandler}
             hideSelectModalHandler={hideSelectModalHandler} 

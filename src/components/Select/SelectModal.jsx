@@ -3,7 +3,7 @@ import Modal from '../UI/Modal';
 import Toppings from '../Toppings/Toppings';
 import SubHeaderCartButton from '../Layout/SubHeaderCartButton';
 
-const SelectToppingModal = ({ showSubCartHandler, selectedYogurt, backendData, setBackendData, selectedCategory, setSelectedCategory, hideSelectModalHandler, hideCartHandler }) => {
+const SelectModal = ({ showSubCartHandler, selectedYogurt, backendData, setBackendData, selectedCategory, setSelectedCategory, hideSelectModalHandler, hideCartHandler }) => {
   const onSelect = (id) => {
     setSelectedCategory(id);
   }
@@ -44,4 +44,4 @@ const SelectToppingModal = ({ showSubCartHandler, selectedYogurt, backendData, s
   );
 };
 
-export default SelectToppingModal;
+export default SelectModal;
