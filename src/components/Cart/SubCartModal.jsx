@@ -5,11 +5,11 @@ import classes from './SubCartModal.module.css';
 import CartContext from '../../store/cartContext'; 
 
 const SubCartModal = ({ hideSubCartHandler }) => {
-  const { subCartItems, subCartTotalPrice } = useContext(CartContext);
+  const { items, totalPrice } = useContext(CartContext);
 
   const cartItem = (
     <ul className={classes['cart-items']}>
-      {subCartItems.map(item => 
+      {items.map(item => 
         <SubCartItem 
           key={item.id} 
           id={item.id}
@@ -21,7 +21,7 @@ const SubCartModal = ({ hideSubCartHandler }) => {
     </ul>
     );
     
-  const commaSeparatedTotalPrice = subCartTotalPrice.toLocaleString(3);
+  const commaSeparatedTotalPrice = totalPrice.toLocaleString(3);
 
   return (
     <Modal hideHandler={hideSubCartHandler}>

@@ -4,9 +4,9 @@ import classes from './MainHeaderCartButton.module.css';
 import CartContext from '../../store/cartContext';
 
 const MainHeaderCartButton = ({ onClick }) => {
-  const {subCartItems} = useContext(CartContext);
+  const {items} = useContext(CartContext);
   
-  const numberOfCartItems = subCartItems.reduce((curNumber, item) => {
+  const numberOfCartItems = items.reduce((curNumber, item) => {
     return curNumber + item.amount;
   }, 0);
 

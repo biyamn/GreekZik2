@@ -2,11 +2,8 @@ import React, { useReducer } from 'react';
 import CartContext from './cartContext';
 
 const initialCartState = {
-  subCartItems: [],
-  mainCartItems: [],
-
-  subCartTotalPrice: 0,
-  mainCartTotalPrice: 0,
+  items: [],
+  totalPrice: 0
 }
 
 const cartReducer = (state, action) => { 
@@ -14,7 +11,7 @@ const cartReducer = (state, action) => {
     case 'saved': {
       // console.log('saved')
       // console.log('action.selectedItemData: ', action.selectedItemData)
-      const newItemData = state.subCartItems.concat(action.selectedItemData);
+      const newItemData = state.items.concat(action.selectedItemData);
       // console.log('newItemData: ', newItemData)
       const mergedItemData = newItemData.reduce((acc, cur) => {
         const found = acc.find((item) => item.id === cur.id);
@@ -31,8 +28,8 @@ const cartReducer = (state, action) => {
       }, 0);
       // console.log('newTotalPrice: ', newTotalPrice)
       return {
-        subCartItems: mergedItemData,
-        subCartTotalPrice: newTotalPrice
+        items: mergedItemData,
+        totalPrice: newTotalPrice
       }
     }
 
@@ -40,7 +37,7 @@ const cartReducer = (state, action) => {
       // console.log('added')
       // 아래 updatedArr 함수에서 뭔가 잘못됨.
       // console.log('state.items: ', state.items)
-      const updatedArr = state.subCartItems.map((cur) => {
+      const updatedArr = state.items.map((cur) => {
         // console.log('before cur: ', cur) // 맞음
         // console.log('cur.id: ', cur.id);
         // console.log('action.id: ', action.id)
@@ -60,13 +57,13 @@ const cartReducer = (state, action) => {
       const newTotalPrice = updatedArr.reduce((acc, cur) => acc + (cur.amount * cur.price), 0);
       
       return {
-        subCartItems: updatedArr,
-        subCartTotalPrice: newTotalPrice
+        items: updatedArr,
+        totalPrice: newTotalPrice
       }
     }
 
     case 'removed': {
-      const updatedArr = state.subCartItems.map((cur) => {
+      const updatedArr = state.items.map((cur) => {
         if (cur.amount > 0 && cur.id === action.id) {
           return {
             ...cur,
@@ -87,8 +84,8 @@ const cartReducer = (state, action) => {
       }, 0);
       
       return {
-        subCartItems: removedArr,
-        subCartTotalPrice: newTotalPrice
+        items: removedArr,
+        totalPrice: newTotalPrice
       }
     }
 
@@ -126,8 +123,8 @@ const cartProvider = ({ children }) => {
   }
 
   const cartContext = {
-    subCartItems: cartState.subCartItems,
-    subCartTotalPrice: cartState.totalPrice,
+    items: cartState.items,
+    totalPrice: cartState.totalPrice,
     onSave: handleSaveItem,
     onAdd: handleAddItem,
     onRemove: handleRemoveItem,
