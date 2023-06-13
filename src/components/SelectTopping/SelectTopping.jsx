@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import SelectModal from './SelectModal';
+import SelectToppingModal from './SelectToppingModal';
 import ToppingsSummary from '../Toppings/ToppingsSummary';
 import CartContext from '../../store/cartContext';
 import { useContext } from 'react';
@@ -27,7 +27,7 @@ const Select = ({ showSelectModalHandler, hideSelectModalHandler, showSubCartHan
           )})
         }
       </ul>
-      {selectModalIsShown && <SelectModal 
+      {selectModalIsShown && <SelectToppingModal 
         showSubCartHandler={showSubCartHandler}
 
         showSelectModalHandler={showSelectModalHandler}
