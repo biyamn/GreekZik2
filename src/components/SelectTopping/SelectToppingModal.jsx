@@ -25,11 +25,16 @@ const SelectToppingModal = ({ showSubCartHandler, selectedYogurt, backendData, s
     setBackendData(newBackendData)
   }  
   
+  const AddToMainCartHandler = () => {
+
+  }
+  
   return (
     <div>
       <Modal selectedYogurt={selectedYogurt} hideHandler={hideSelectModalHandler}>
         <h1>토핑 내마음대로 담기!</h1>
         <SubHeaderCartButton onClick={showSubCartHandler}/>
+        <button onClick={AddToMainCartHandler}>전체 장바구니에 담기</button>
         <Toppings 
           backendData={backendData} 
           setBackendData={setBackendData} 

@@ -5,14 +5,14 @@ import classes from './MainCartModal.module.css';
 import CartContext from '../../store/cartContext'; 
 
 const MainCartModal = ({ hideMainCartHandler }) => {
-  const { items, totalPrice } = useContext(CartContext);
+  const { subCartItems, subCartTotalPrice } = useContext(CartContext);
   const [fullItems, setFullItems] = useState([]);
-  const merged = items.filter(item => item.id === '');
+  const merged = subCartItems.filter(item => item.id === '');
   console.log('merged: ', merged);
 
   const cartItem = (
     <ul className={classes['cart-items']}>
-      {items.map(item => 
+      {subCartItems.map(item => 
         <MainCartItem 
           key={item.id} 
           id={item.id}
@@ -24,7 +24,7 @@ const MainCartModal = ({ hideMainCartHandler }) => {
     </ul>
     );
     
-  const commaSeparatedTotalPrice = totalPrice.toLocaleString(3);
+  const commaSeparatedTotalPrice = subCartTotalPrice.toLocaleString(3);
 
   return (
     <Modal hideHandler={hideMainCartHandler}>

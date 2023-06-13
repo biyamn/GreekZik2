@@ -1,7 +1,11 @@
 import { createContext } from 'react';
 const cartContext = createContext({
-  items: [],
-  totalPrice: 0,
+  subCartItems: [],
+  mainCartItems: [],
+
+  subCartTotalPrice: 0,
+  mainCartTotalPrice: 0,
+  
   onSave: (selectedItemData) => {},
   onAdd: (id) => {},
   onRemove: (id) => {}
