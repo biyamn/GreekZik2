@@ -1,159 +1,89 @@
 # 그릭요거트 주문 앱
-
-<div align="center">
-  <img src='https://github.com/biyamn/GreekZik/assets/101965666/1067575a-9f45-4eec-952f-f4e9c3b9679d' width="60%"/>
-
-**배포 링크**: 추가 예정
-
-</div>
+## 📜 프로젝트 소개
+토핑을 선택하여 장바구니에 추가하고 주문할 수 있는 그릭요거트트 주문앱입니다.
 
 <br>
 
-## 프로젝트 실행 방법
-
-```
-$ npm install
-$ npm run dev
-```
-
-<br>
-
-## 그릭직 소개
-
-그릭요거트를 커스텀해서 주문할 수 있는 주문앱입니다.
-각 카테고리에서 각기 다른 종류의 그릭요거트 토핑을 선택 후 수량을 지정하여 장바구니에 추가할 수 있습니다.
+## 💡 주요 페이지 및 기능
+각 카테고리에서 각기 다른 종류의 그릭요거트 토핑을 선택 후 수량을 지정하여 장바구니에 추가할 수 있습니다. 
 장바구니 버튼을 누르면 모달이 뜨며 담은 재료의 상세 정보와 총액을 확일할 수 있습니다.
 
 <br>
 
-## 기능 소개
-
-### 토핑 카테고리 선택하기
-
-- 토핑 카테고리를 선택하여 다양한 토핑을 선택할 수 있습니다.
-
-| <img src='https://github.com/biyamn/GreekZik/assets/101965666/c0172403-387e-4d94-a018-17c4073128de' style="width: 50%" /> |
-| :-----------------------------------------------------------------------------------------------------------------------: |
-|                                                  토핑 카테고리 선택하기                                                   |
-
-### 장바구니에 담기
-
-- 선택한 토핑을 장바구니에 담을 수 있습니다.
-
-| <img src='https://github.com/biyamn/GreekZik/assets/101965666/26f788c4-a3e8-4ee8-8add-cda951c83a13' style="width: 50%" /> |
-| :-----------------------------------------------------------------------------------------------------------------------: |
-|                                                      장바구니에 담기                                                      |
+## 💁‍♀️ 데모
+<img src="https://user-images.githubusercontent.com/101965666/236651826-bcd640db-33da-463a-bc24-4e100e7fb352.gif" width="80%">
 
 <br>
 
-## 기술 스택
+## 📜 구현 과정과 결과
+### 1. 와이어프레임
+- 피그마로 와이어프레임을 구성했습니다.
+- 와이어프레임과 동일한 UI를 구성하였습니다.
+- 구조를 세분화하여 컴포넌트를 나눴습니다.
+- **구현 과정을 담은 포스팅**: <a href='https://velog.io/@hamham/%EC%9E%A5%EB%B0%94%EA%B5%AC%EB%8B%88-1%ED%83%84-%EC%99%80%EC%9D%B4%EC%96%B4%ED%94%84%EB%A0%88%EC%9D%B4%EB%B0%8D'>[주문앱 1탄] UI 만들기</a>
+- **구현 결과**: 
 
-- Frontend
-  - HTML5, CSS3
-  - JavaScript
-  - React.js
-- Backend
-  - Firebase
-
-<br>
-
-## 폴더 구조
-
-```
-📦src
- ┣ 📂assets
- ┣ 📂components
- ┃ ┣ 📂Cart
- ┃ ┣ 📂Layout
- ┃ ┣ 📂SelectTopping
- ┃ ┣ 📂Toppings
- ┃ ┃ ┣ 📂ToppingItem
- ┃ ┗ 📂UI
- ┣ 📂store
- ┣ 📜App.css
- ┣ 📜App.jsx
- ┣ 📜main.css
- ┗ 📜main.jsx
-```
+  <img src='https://user-images.githubusercontent.com/101965666/236651925-d56521bf-46c6-4349-9845-dbf0a3066bcd.png'>
 
 <br>
 
-## 구현 과정 블로깅
+### 2. 카테고리 기능
+- 토핑의 종류에 따라 `그릭요거트`, `그래놀라`, `수제청&시럽`, `시리얼` 카테고리를 생성했습니다.
+- **구현 과정을 담은 포스팅**: <a href='https://velog.io/@hamham/%EC%9E%A5%EB%B0%94%EA%B5%AC%EB%8B%88-2%ED%83%84-%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC-%EB%A7%8C%EB%93%A4%EA%B8%B0'>[주문앱 2탄] 카테고리 만들기</a>
+- **구현 결과**: 
 
-- <a href='https://velog.io/@hamham/%EC%9E%A5%EB%B0%94%EA%B5%AC%EB%8B%88-1%ED%83%84-%EC%99%80%EC%9D%B4%EC%96%B4%ED%94%84%EB%A0%88%EC%9D%B4%EB%B0%8D'>[주문앱 1탄] UI 만들기</a>
-- <a href='https://velog.io/@hamham/%EC%9E%A5%EB%B0%94%EA%B5%AC%EB%8B%88-2%ED%83%84-%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC-%EB%A7%8C%EB%93%A4%EA%B8%B0'>[주문앱 2탄] 카테고리 만들기</a>
-- <a href='https://velog.io/@hamham/%EC%A3%BC%EB%AC%B8%EC%95%B1-3%ED%83%84-Portal%EB%A1%9C-%EB%AA%A8%EB%8B%AC-%EB%A7%8C%EB%93%A4%EA%B8%B0'>[주문앱 3탄] Portal로 모달 만들기</a>
-- <a href='https://velog.io/@hamham/%EC%A3%BC%EB%AC%B8%EC%95%B1-4%ED%83%84-%EB%8B%B4%EA%B8%B0-%EA%B8%B0%EB%8A%A5-%EB%A7%8C%EB%93%A4%EA%B8%B0'>[주문앱 4탄] 담기 기능 만들기(1)</a>
-- <a href='https://velog.io/@hamham/%EC%A3%BC%EB%AC%B8%EC%95%B1-5%ED%83%84-%EC%8B%9C%ED%96%89%EC%B0%A9%EC%98%A4-%EB%AA%A8%EC%9D%8Ckey-state'>[주문앱 5탄] 시행착오 모음(key, state)</a>
-- <a href='https://velog.io/@hamham/%EC%A3%BC%EB%AC%B8%EC%95%B1-6%ED%83%84-%EB%8B%B4%EA%B8%B0-%EA%B8%B0%EB%8A%A5-%EB%A7%8C%EB%93%A4%EA%B8%B02'>[주문앱 6탄] 담기 기능 만들기(2)</a>
-- <a href='https://velog.io/@hamham/%EC%A3%BC%EB%AC%B8%EC%95%B1-7%ED%83%84-%EB%A6%AC%ED%8C%A9%ED%86%A0%EB%A7%81%ED%95%98%EA%B8%B0useReducer-Hook-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0-pm7pggvk'>[주문앱 7탄] reducer로 리팩토링하기</a>
-- <a href='https://velog.io/@hamham/%EC%A3%BC%EB%AC%B8%EC%95%B1-7%ED%83%84-%EB%A6%AC%ED%8C%A9%ED%86%A0%EB%A7%81%ED%95%98%EA%B8%B0useContext'>[주문앱 8탄] context API로 리팩토링하기</a>
-- <a href='https://velog.io/@hamham/%EC%A3%BC%EB%AC%B8%EC%95%B1-9%ED%83%84-API-%ED%98%B8%EC%B6%9C%ED%95%98%EA%B8%B0useEffect-asyncawait-useState'>[주문앱 9탄] API 호출하기(& useEffect)</a>
+  <img src='https://user-images.githubusercontent.com/101965666/236651932-d863d0ab-d115-4ad9-8ef6-eb8adc6e6134.gif'>
 
 <br>
 
-## 구현 기능 목록
+### 3. 모달
+- Portal로 모달을 구현했습니다. 
+- 닫기 버튼과 모달 바깥쪽 클릭시 모달이 닫히는 기능을 추가했습니다.
+- **구현 과정을 담은 포스팅**: <a href='https://velog.io/@hamham/%EC%A3%BC%EB%AC%B8%EC%95%B1-3%ED%83%84-Portal%EB%A1%9C-%EB%AA%A8%EB%8B%AC-%EB%A7%8C%EB%93%A4%EA%B8%B0'>[주문앱 3탄] Portal로 모달 만들기</a>
+- **구현 결과**: 
 
-<details>
-<summary>구현 기능 목록</summary>
-<div>
-
-### UI
-
-- [x] 와이어프레임 피그마
-- [x] 와이어프레임 구현
-- [x] 컴포넌트 나누기
-- [x] 모달 UI
-- [x] 카드형으로
-- [ ] CSS Module ⇒ styled-components 리팩토링
-
-### Feature
-
-- [x] 카테고리 기능 구현
-- [x] 서버 연동
-- [x] 모달 열기, 닫기
-- [x] 장바구니 총계 구현
-- [x] `+담기` 버튼 누르면 장바구니에 재료 담기
-- [x] 담은 수량이랑 장바구니 안 수량이랑 동기화
-- [x] 장바구니 안에서 +, - 기능 구현
-- [x] 장바구니에서 같은 재료면 누적해서 보여주기
-- [x] 장바구니 안에서 삭제 기능 구현
-- [ ] `+담기` 버튼 누르면 해당 수량 초기화
-- [ ] 전체 삭제 버튼 만들기
-- [ ] 주문하기 기능(POST 요청)
-- [x] 한그릇이 아니라 여러 그릇 선택할 수 있게 하기
-  - [x] 메인페이지에서 그릭요거트 선택 후 요거트모달에서 토핑 선택하도록
-  - [x] 요거트모달 show, hide를 상태로 관리
-  - [x] 요거트모달 스크롤 가능하게 하기
-  - [x] 그릭요거트 수량 선택 가능하도록
-  - [x] 토핑용 장바구니 추가
-- [x] 모달 분리(MainModal, SubModal, SelectModal)
-- [ ] MainCart 객체 형식으로 수정
-  - [ ] 한그릇 `담기` 기능, 버튼 추가(context API 변경)
-  - [ ] main 장바구니에 그릇 단위로 담기는 기능 추가
-- [ ] 결제 창 만들기
-- [ ] PG 연결
-- [x] nav bar - 그릭요거트/게시판/소개/내정보/장바구니 만들기
-- [ ] 메인 페이지 레이아웃
-  - [ ] 컴포넌트 3개로 나누기(navigation, menu, cart)
-  - [ ] navigation에서 custom, finished로 라우팅 설정하기
-
-### Refactor
-
-- [x] state 분해하기: ToppingItemForm에서 itemState 중 바뀌는 건 amount 하나 뿐인데 갱신할 때마다 모든 상태를 복사해야 함
-- [x] fetch 대신 swr이나 react-query나 tanstack/query 써보기
-- [ ] JavaScript ⇒ TypeScript 마이그레이션
-- [x] fetch → axios 리팩토링
-- [x] props drilling 피하기(재정의 필요 없는 것부터 지우기)
-- [x] destructuring 활용하기: React에서 props는 언제나 object이므로 1 단계 destructuring은 언제나 성공하기 때문에
-- [x] context API 사용하여 한군데에서 state 관리하기
-- [x] useReducer로 state 대체하기
-- [x] node.js 대신 firebase에 GET, POST 요청 보낼 수 있게 하기
-- [ ] eslint, prettier 적용하기
+  <img src='https://user-images.githubusercontent.com/101965666/236651927-5a630192-fdbf-4c93-8ed5-71ffca4d5ce2.gif'>
 
 <br>
 
-</div>
-</details>
+### 4. 장바구니 담기 기능
+- 토핑 수량 선택 후 담기 버튼을 누르면 장바구니에 재료가 담기는 기능을 구현했습니다.
+- **구현 과정을 담은 포스팅**: <a href='https://velog.io/@hamham/%EC%A3%BC%EB%AC%B8%EC%95%B1-4%ED%83%84-%EB%8B%B4%EA%B8%B0-%EA%B8%B0%EB%8A%A5-%EB%A7%8C%EB%93%A4%EA%B8%B0'>담기 기능 만들기(1)</a>
+- **구현 결과**: 
+
+  <img src='https://user-images.githubusercontent.com/101965666/236651953-114201fa-b96b-4b11-85d5-5b15bce8cec0.gif'>
+
+<br>
+
+### 5. 시행착오 기록
+- 카테고리 기능을 만들며 경험한 9가지의 시행착오와 이를 해결한 과정을 기록했습니다.
+- **구현 과정을 담은 포스팅**: <a href='https://velog.io/@hamham/%EC%A3%BC%EB%AC%B8%EC%95%B1-5%ED%83%84-%EC%8B%9C%ED%96%89%EC%B0%A9%EC%98%A4-%EB%AA%A8%EC%9D%8Ckey-state'>[주문앱 5탄] 시행착오 모음(key, state)</a>
+- **구현 결과**: 
+
+  <img src='https://user-images.githubusercontent.com/101965666/236651958-6a582e29-de5b-4c90-bfb9-9f187a7f8b48.gif'>
+
+<br>
+
+### 6. 장바구니 담기 기능 완성 
+- 장바구니 안에서 수량 추가/감소 기능을 구현했습니다.
+- 장바구니 안에서 재료 삭제 기능을 구현하였습니다. 
+- 담은 재료가 장바구니에 이미 있으면 정보를 누적해서 보여주는 기능을 구현했습니다.
+  
+- **구현 과정을 담은 포스팅**: <a href='https://velog.io/@hamham/%EC%A3%BC%EB%AC%B8%EC%95%B1-6%ED%83%84-%EB%8B%B4%EA%B8%B0-%EA%B8%B0%EB%8A%A5-%EB%A7%8C%EB%93%A4%EA%B8%B02'>[주문앱 6탄] 담기 기능 만들기(2)</a>
+- **구현 결과**: 
+
+  <img src='https://github.com/biyamn/GreekYogurt-Order-App/assets/101965666/da1b3cd5-e59b-41d5-be8c-892156d4515e'>
+
+<br>
+
+### 7. 리팩토링(useReducer)
+- reducer를 사용하여 그릭요거트 주문앱을 리팩토링했습니다.
+- **구현 과정을 담은 포스팅**: <a href='https://velog.io/@hamham/%EC%A3%BC%EB%AC%B8%EC%95%B1-7%ED%83%84-%EB%A6%AC%ED%8C%A9%ED%86%A0%EB%A7%81%ED%95%98%EA%B8%B0useReducer-Hook-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0-pm7pggvk'>[주문앱 7탄] 리팩토링하기(useReducer)</a>
+
+<br>
+
+### 8. 리팩토링(useReducer)
+- context API를 사용하여 그릭요거트 주문앱을 리팩토링했습니다.
+- **구현 과정을 담은 포스팅**: <a href='https://velog.io/@hamham/%EC%A3%BC%EB%AC%B8%EC%95%B1-7%ED%83%84-%EB%A6%AC%ED%8C%A9%ED%86%A0%EB%A7%81%ED%95%98%EA%B8%B0useContext'>[주문앱 8탄] 리팩토링하기(useContext)</a>
 
 <br>
