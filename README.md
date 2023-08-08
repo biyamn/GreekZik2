@@ -32,7 +32,7 @@ $ npm run dev
 
 - 토핑 카테고리를 선택하여 다양한 토핑을 선택할 수 있습니다.
 
-| <img src='https://github.com/biyamn/GreekZik/assets/101965666/c0172403-387e-4d94-a018-17c4073128de' style="width: 50%" /> |
+| <img src='https://github.com/biyamn/GreekZik/assets/101965666/99476674-c099-4360-b4b7-cc454e676c5a' style="width: 50%" /> |
 | :-----------------------------------------------------------------------------------------------------------------------: |
 |                                                  토핑 카테고리 선택하기                                                   |
 
@@ -40,7 +40,7 @@ $ npm run dev
 
 - 선택한 토핑을 장바구니에 담을 수 있습니다.
 
-| <img src='https://github.com/biyamn/GreekZik/assets/101965666/26f788c4-a3e8-4ee8-8add-cda951c83a13' style="width: 50%" /> |
+| <img src='https://github.com/biyamn/GreekZik/assets/101965666/0047a910-7f42-474e-94b5-15c12a68dec8' style="width: 50%" /> |
 | :-----------------------------------------------------------------------------------------------------------------------: |
 |                                                      장바구니에 담기                                                      |
 
