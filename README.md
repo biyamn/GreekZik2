@@ -1,7 +1,7 @@
 # 그릭요거트 주문 앱
 
 <div align="center">
-  <img src='https://github.com/biyamn/GreekZik/assets/101965666/e9d12b30-4627-4787-8e0c-04bc9a927921' width="60%"/>
+  <img src='https://github.com/biyamn/GreekZik/assets/101965666/1067575a-9f45-4eec-952f-f4e9c3b9679d' width="60%"/>
 
 **배포 링크**: 추가 예정
 
