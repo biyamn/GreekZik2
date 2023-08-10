@@ -70,9 +70,9 @@ function App() {
   } else if (status === "loaded") {
     return (
       <CartProvider>
-        {mainCartIsShown && (
+        {/* {mainCartIsShown && (
           <MainCartModal hideMainCartHandler={hideMainCartHandler} />
-        )}
+        )} */}
         {/* <MainHeader showMainCartHandler={showMainCartHandler} /> */}
         <Main>
           {subCartIsShown && (
