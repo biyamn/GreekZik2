@@ -1,7 +1,7 @@
 import MainCartModal from "./components/Cart/MainCartModal";
 import React, { useState, useEffect } from "react";
 import MainHeader from "./components/Layout/MainHeader";
-import CartProvider from "./store/cartProvider";
+import CartProvider from "./store/CartProvider";
 import SelectTopping from "./components/SelectTopping/SelectTopping";
 import SubCartModal from "./components/Cart/SubCartModal";
 import "./App.css";
