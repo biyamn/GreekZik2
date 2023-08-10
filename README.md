@@ -1,7 +1,7 @@
 # 그릭요거트 주문 앱
 
 <div align="center">
-  <img src='https://github.com/biyamn/GreekZik/assets/101965666/e9d12b30-4627-4787-8e0c-04bc9a927921' width="60%"/>
+  <img src='https://github.com/biyamn/GreekZik/assets/101965666/3c55983a-9c56-4bee-a96c-e8072c52eb67' width="60%"/>
 
 **배포 링크**: 추가 예정
 
@@ -32,7 +32,7 @@ $ npm run dev
 
 - 토핑 카테고리를 선택하여 다양한 토핑을 선택할 수 있습니다.
 
-| <img src='https://github.com/biyamn/GreekZik/assets/101965666/99476674-c099-4360-b4b7-cc454e676c5a' style="width: 50%" /> |
+| <img src='https://github.com/biyamn/GreekZik/assets/101965666/cdb9518b-8eb9-47e9-814f-9fd5a5e11a6b' style="width: 50%" /> |
 | :-----------------------------------------------------------------------------------------------------------------------: |
 |                                                  토핑 카테고리 선택하기                                                   |
 
@@ -40,7 +40,7 @@ $ npm run dev
 
 - 선택한 토핑을 장바구니에 담을 수 있습니다.
 
-| <img src='https://github.com/biyamn/GreekZik/assets/101965666/0047a910-7f42-474e-94b5-15c12a68dec8' style="width: 50%" /> |
+| <img src='https://github.com/biyamn/GreekZik/assets/101965666/96db9a25-1951-490a-98d1-cde4a3cf790f' style="width: 50%" /> |
 | :-----------------------------------------------------------------------------------------------------------------------: |
 |                                                      장바구니에 담기                                                      |
 
