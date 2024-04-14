@@ -1,13 +1,14 @@
-const conn = require('../mariadb');
+const conn = require('../db');
 const dotenv = require('dotenv');
 dotenv.config();
 
 const join = (req, res) => {
-  const { email, password, nickname } = req.body;
-  const values = [email, password, nickname];
-  const sql = `INSERT INTO users (email, password, nickname) VALUES (?, ?, ?)`;
+  const { nickname, email, password } = req.body;
+  const values = [nickname, email, password];
+  const sql = `INSERT INTO users (nickname, email, password) VALUES (?, ?, ?)`;
   conn.query(sql, values, (err, result) => {
     if (err) {
+      console.log(err);
       res.status(500).json('회원가입 실패');
       return;
     }

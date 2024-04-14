@@ -1,10 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const conn = require('../db');
+
+const { join, login } = require('../Controller/UserController');
 
 router.use(express.json()); // post 요청을 위해 필요
-
-const { join, login } = require('../controller/UserController.js');
 
 // 회원가입
 router.post('/join', join);

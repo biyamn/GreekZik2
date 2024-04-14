@@ -1,11 +1,13 @@
-const mysql = require('mysql2');
+// mysql 모듈 소환
+const mariadb = require('mysql2');
 
-const connection = mysql.createConnection({
+// DB 연결 통로 생성
+const connection = mariadb.createConnection({
   host: 'localhost',
   user: 'root',
   password: 'root',
   database: 'GreekZik',
-  dateStrings: true, // DB에서 불러올 TIMESTAMP 값에서 소수점단위의 시간은 제거
+  dateStrings: true,
 });
 
 module.exports = connection;
