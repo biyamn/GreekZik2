@@ -1,36 +1,36 @@
-import CartModal from "./components/Cart/CartModal";
-import React, { useState, useEffect } from "react";
-import Header from "./components/Layout/Header";
-import Toppings from "./components/Toppings/Toppings";
-import CartProvider from "./store/CartProvider";
-import "./App.css";
+import CartModal from '../components/Cart/CartModal';
+import React, { useState, useEffect } from 'react';
+import Header from '../components/Layout/Header';
+import Toppings from '../components/Toppings/Toppings';
+import CartProvider from '../store/CartProvider';
+import '../App.css';
 
-function App() {
+function Products() {
   const [backendData, setBackendData] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState("ca1");
+  const [selectedCategory, setSelectedCategory] = useState('ca1');
   const [cartIsShown, setCartIsShown] = useState(false);
   // const [isLoading, setIsLoading] = useState(false);
-  const [status, setStatus] = useState("init");
+  const [status, setStatus] = useState('init');
 
   const fetchData = async () => {
-    setStatus("loading");
+    setStatus('loading');
 
     try {
       const response = await fetch(
-        "https://greek-yogurt-order-app-17351-default-rtdb.firebaseio.com/data.json"
+        'https://greek-yogurt-order-app-17351-default-rtdb.firebaseio.com/data.json'
       );
       const data = await response.json();
       // setIsLoading을 같은 핸들러에서 써도 되는 이유: await로 시간차가 생기기 때문에
 
-      setStatus("loaded");
+      setStatus('loaded');
       setBackendData(data);
     } catch (error) {
-      console.log("error: ", error);
+      console.log('error: ', error);
     }
   };
 
   useEffect(() => {
-    console.log("useEffect 시작");
+    console.log('useEffect 시작');
     fetchData();
   }, []);
 
@@ -42,9 +42,9 @@ function App() {
     setCartIsShown(false);
   };
 
-  if (status === "loading" || status === "init") {
+  if (status === 'loading' || status === 'init') {
     return <div>Loading...</div>;
-  } else if (status === "loaded") {
+  } else if (status === 'loaded') {
     return (
       <CartProvider>
         {cartIsShown && <CartModal hideCartHandler={hideCartHandler} />}
@@ -62,4 +62,4 @@ function App() {
   }
 }
 
-export default App;
+export default Products;
